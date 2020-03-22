@@ -18,6 +18,10 @@ $family-secondary: 'Roboto Mono', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fi
 
 $link-height: 40%;
 
+html {
+  overflow: hidden;
+}
+
 a {
   color: white;
   position: relative;

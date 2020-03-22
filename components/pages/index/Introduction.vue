@@ -10,13 +10,7 @@
 </template>
 
 <script>
-import LayoutDefault from '~/components/global/layouts/LayoutDefault'
-
-export default {
-  components: {
-    LayoutDefault
-  }
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
