@@ -1,0 +1,49 @@
+/// Import the variables file for overriding the defaults
+@import './styling/variables/_all.scss';
+
+$family-primary: 'Space Mono', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  'Helvetica', 'Arial', sans-serif;
+$family-secondary: 'Roboto Mono', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  'Helvetica', 'Arial', sans-serif;
+
+/// Import the modules of bulma to keep the chunk small
+/// @link https://bulma.io/documentation/overview/modular/
+@import 'bulma/sass/utilities/_all.sass';
+@import 'bulma/sass/base/_all.sass';
+@import 'bulma/sass/elements/_all.sass';
+@import 'bulma/sass/form/_all.sass';
+@import 'bulma/sass/components/_all.sass';
+@import 'bulma/sass/grid/_all.sass';
+@import 'bulma/sass/layout/_all.sass';
+
+$link-height: 40%;
+
+a {
+  color: white;
+  position: relative;
+
+  &::before {
+    transition: all 300ms ease-in-out;
+    content: ' ';
+    position: absolute;
+    background-color: $danger;
+    height: $link-height;
+    width: $link-height / 2;
+    bottom: 10px;
+    display: inline-block;
+  }
+
+  &:hover {
+    color: white;
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+::selection {
+  background: $danger; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $danger; /* Gecko Browsers */
+}
