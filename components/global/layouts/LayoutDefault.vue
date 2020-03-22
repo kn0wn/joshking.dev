@@ -1,13 +1,13 @@
 <template>
   <section class="hero is-fullheight has-background-black">
     <div class="hero-head">
-      <slot name="head"></slot>
+      <slot name="head" />
     </div>
     <div class="hero-body">
-      <slot></slot>
+      <slot />
     </div>
     <div class="hero-foot">
-      <slot name="footer"></slot>
+      <slot name="footer" />
     </div>
   </section>
 </template>

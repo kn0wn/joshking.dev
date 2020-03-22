@@ -1,10 +1,10 @@
 /// Import the variables file for overriding the defaults
 @import './styling/variables/_all.scss';
 
-$family-primary: 'Space Mono', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-  'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-$family-secondary: 'Roboto Mono', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-  'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$family-primary: 'Space Mono', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  'Helvetica', 'Arial', sans-serif;
+$family-secondary: 'Roboto Mono', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  'Helvetica', 'Arial', sans-serif;
 
 /// Import the modules of bulma to keep the chunk small
 /// @link https://bulma.io/documentation/overview/modular/
@@ -28,7 +28,7 @@ a {
     position: absolute;
     background-color: $danger;
     height: $link-height;
-    width: 0%;
+    width: $link-height / 2;
     bottom: 10px;
     display: inline-block;
   }
