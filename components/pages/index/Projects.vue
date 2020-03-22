@@ -9,10 +9,16 @@
 </template>
 
 <script>
+import { ref } from '@vue/composition-api'
+
 export default {
-  data: () => ({
-    projects: ['Vue-cosha', 'trueagility', 'HOTSPRINGMUSIC', 'Revision', 'Notbotapi']
-  })
+  setup() {
+    const projects = ref(['Vue-cosha', 'trueagility', 'HOTSPRINGMUSIC', 'Revision', 'Notbotapi'])
+
+    return {
+      projects
+    }
+  }
 }
 </script>
 

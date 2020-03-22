@@ -19,10 +19,16 @@
 </template>
 
 <script>
+import { ref } from '@vue/composition-api'
+
 export default {
-  data: () => ({
-    posts: ['Recreating my personal website', 'details and summary', 'hello world']
-  })
+  setup() {
+    const posts = ref(['Recreating my personal website', 'details and summary', 'hello world'])
+
+    return {
+      posts
+    }
+  }
 }
 </script>
 
