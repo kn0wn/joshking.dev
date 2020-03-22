@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-fullheight has-background-black">
+  <section class="hero is-fullheight has-background-black dev-default">
     <div class="hero-head">
       <slot name="head" />
     </div>
@@ -16,4 +16,8 @@
 export default {}
 </script>
 
-<style></style>
+<style>
+.dev-default {
+  scroll-snap-align: start;
+}
+</style>
