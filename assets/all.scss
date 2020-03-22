@@ -1,0 +1,12 @@
+/// Import the variables file for overriding the defaults
+@import './styling/variables/_all.scss';
+
+/// Import the modules of bulma to keep the chunk small
+/// @link https://bulma.io/documentation/overview/modular/
+@import 'bulma/sass/utilities/_all.sass';
+@import 'bulma/sass/base/_all.sass';
+@import 'bulma/sass/elements/_all.sass';
+@import 'bulma/sass/form/_all.sass';
+@import 'bulma/sass/components/_all.sass';
+@import 'bulma/sass/grid/_all.sass';
+@import 'bulma/sass/layout/_all.sass';

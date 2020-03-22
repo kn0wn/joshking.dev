@@ -23,7 +23,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~assets/all.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -33,12 +33,39 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    /**
+     * @docs https://github.com/Developmint/nuxt-purgecss
+     */
+    'nuxt-purgecss'
   ],
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    /**
+     * @docs https://github.com/nuxt-community/style-resources-module
+     */
+    '@nuxtjs/style-resources',
+    /**
+     * @docs https://github.com/nuxt-community/sitemap-module#readme
+     * @note Must always be at the bottom of the modules array
+     */
+    '@nuxtjs/sitemap'
+  ],
+  /**
+   * @docs https://github.com/nuxt-community/style-resources-module
+   */
+  styleResources: {
+    scss: ['~assets/styling/variables/_all.scss']
+  },
+  sitemap: {
+    hostname: 'joshking.dev',
+    gzip: true
+  },
+  purgeCSS: {
+    mode: 'postcss'
+  },
   /*
    ** Build configuration
    */
