@@ -11,7 +11,7 @@
 <script>
 export default {
   data: () => ({
-    projects: ['Vue-cosha', 'Revision', 'HOTSPRINGMUSIC', 'Vue-cosha', 'Revision']
+    projects: ['Vue-cosha', 'trueagility', 'HOTSPRINGMUSIC', 'Revision', 'Notbotapi']
   })
 }
 </script>
@@ -23,11 +23,17 @@ export default {
   color: black;
   -webkit-text-stroke: $global-stroke white;
   cursor: pointer;
-  transition: color 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
   line-height: 0.8em;
 
-  &:hover {
+  &:nth-of-type(even) {
     color: white;
+  }
+
+  &:hover {
+    -webkit-text-stroke: $global-stroke $danger;
+
+    color: $danger;
   }
 }
 </style>
