@@ -40,3 +40,10 @@ a {
     }
   }
 }
+
+::selection {
+  background: $danger; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: $danger; /* Gecko Browsers */
+}
