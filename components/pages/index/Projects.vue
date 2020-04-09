@@ -1,21 +1,28 @@
 <template>
   <layout-default>
-    <h2 class="title">
-      <span v-for="(project, id) in projects" :key="`project-${id}`" class="project-string">
-        {{ project }}
-      </span>
-    </h2>
+    <div class="container">
+      <div class="projects-container has-text-centered">
+        <h2 v-for="(project, id) in projects" :key="`project-${id}`" class="title is-uppercase project-string">
+          {{ project }}
+        </h2>
+      </div>
+    </div>
   </layout-default>
 </template>
 
 <script>
-import { ref } from '@vue/composition-api'
+import { ref, computed } from '@vue/composition-api'
+import { useChunk } from '@/use/utilities/chunk'
 
 export default {
   setup() {
-    const projects = ref(['Vue-cosha', 'trueagility', 'HOTSPRINGMUSIC', 'Revision', 'Notbotapi'])
+    const projects = ref(['Vue-cosha', 'trueagility', 'Revision', 'Notbotapi', 'HOTSPRINGMUSIC'])
+    const slicedProjects = computed(() =>
+      useChunk(['Vue-cosha', 'trueagility', 'Revision', 'Notbotapi', 'HOTSPRINGMUSIC'], 2)
+    )
 
     return {
+      slicedProjects,
       projects
     }
   }
@@ -23,23 +30,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.project-string {
-  font-size: 166px !important;
-  text-transform: uppercase;
-  color: black;
-  -webkit-text-stroke: $global-stroke white;
-  cursor: pointer;
-  transition: all 300ms ease-in-out;
-  line-height: 0.8em;
+.container {
+  overflow: hidden;
+  display: flex;
+}
+.projects-container {
+  width: 150%;
 
-  &:nth-of-type(even) {
-    color: white;
-  }
+  .project-string {
+    font-size: 150px !important;
 
-  &:hover {
-    -webkit-text-stroke: $global-stroke $danger;
+    color: black;
+    -webkit-text-stroke: $global-stroke white;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+    letter-spacing: -6px;
+    margin-bottom: 0px;
+    line-height: 0.8em;
 
-    color: $danger;
+    @include until($tablet) {
+      font-size: 52px !important;
+      letter-spacing: 0px;
+      line-height: 1em;
+    }
+
+    &:nth-of-type(even) {
+      color: white;
+    }
+
+    &:hover {
+      -webkit-text-stroke: $global-stroke $danger;
+
+      color: $danger;
+    }
   }
 }
 </style>
