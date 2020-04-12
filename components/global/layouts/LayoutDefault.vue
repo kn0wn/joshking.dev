@@ -16,8 +16,9 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss">
 .dev-default {
   scroll-snap-align: start;
+  border: 2rem solid $danger;
 }
 </style>
