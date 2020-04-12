@@ -1,21 +1,15 @@
 <template>
   <layout-container>
-    <introduction />
-    <projects />
-    <posts />
+    <console />
   </layout-container>
 </template>
 
 <script>
-import Introduction from '~/components/pages/index/Introduction'
-import Projects from '~/components/pages/index/Projects'
-import Posts from '~/components/pages/index/Posts'
+import Console from '~/components/pages/index/Console'
 
 export default {
   components: {
-    Introduction,
-    Projects,
-    Posts
+    Console
   }
 }
 </script>
