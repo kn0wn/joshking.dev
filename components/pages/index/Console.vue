@@ -1,5 +1,5 @@
 <template>
-  <section class="container" @click="speedAnim()">
+  <section class="container crt is-hidden-mobile" @click="speedAnim()">
     <div class="top">
       <p class="is-uppercase is-family-primary">
         <span v-for="i in getText.title.length" :key="`title-${i}`" class="letter">{{ getText.title[i - 1] }}</span>
@@ -30,7 +30,7 @@
       </div>
       <div class="column is-flex content-side">
         <p v-if="currentViewing">
-          <span v-for="i in currentViewing.content.length" :key="`select-${i}`" class="letter">{{
+          <span v-for="i in currentViewing.content.length" :key="`select-${i}`" class="letter is-uppercase">{{
             currentViewing.content[i - 1]
           }}</span>
         </p>
@@ -55,6 +55,7 @@ export default {
   data: () => ({
     MAX_INDEX: 34,
     currentViewing: null,
+    viewed: 3,
     content: [
       {
         word: 'About',
@@ -63,11 +64,11 @@ export default {
       },
       {
         word: 'Projects',
-        content: '> projects'
+        content: '> https://github.com/kn0wn'
       },
       {
         word: 'Contact',
-        content: '> contact'
+        content: '> hello@joshking.dev'
       }
     ],
     animeInstance: null
@@ -77,7 +78,7 @@ export default {
       return {
         title: 'Robco industries (tm) termlink protocol',
         password: 'Enter password now',
-        items: `${this.content.length}  item(s) left:`,
+        items: `${this.viewed}  item(s) left:`,
         select: '> Select a topic'
       }
     },
@@ -104,8 +105,9 @@ export default {
     },
     viewingItem(id) {
       const foundContent = this.getContent.find((item) => item.id === id)
-      if (foundContent) {
+      if (foundContent && foundContent !== this.currentViewing) {
         this.currentViewing = foundContent
+        if (this.viewed > 0) this.viewed -= 1
         const content = document.querySelectorAll('.content-side .letter')
 
         content.forEach((domItem) => {
