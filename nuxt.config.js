@@ -66,7 +66,7 @@ export default {
     scss: ['~assets/styling/variables/_all.scss']
   },
   sitemap: {
-    hostname: 'joshking.dev',
+    hostname: 'https://joshking.dev',
     gzip: true
   },
   purgeCSS: {
