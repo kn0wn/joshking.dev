@@ -149,5 +149,6 @@ export default {
 span,
 p {
   color: #41b171;
+  word-break: break-word;
 }
 </style>
