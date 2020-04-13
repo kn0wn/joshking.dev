@@ -28,6 +28,7 @@ html {
 
 .crt {
   animation: textShadow 1.6s infinite;
+  will-change: text-shadow, opacity;
 
   &::before {
     content: ' ';
@@ -56,6 +57,6 @@ html {
     opacity: 0;
     z-index: 2;
     pointer-events: none;
-    animation: flicker 0.15s infinite;
+    animation: flicker 0.5s infinite;
   }
 }

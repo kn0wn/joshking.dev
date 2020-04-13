@@ -11,10 +11,11 @@
 </template>
 
 <script>
-import anime from 'animejs'
+// import anime from 'animejs'
 
 export default {
   data: () => ({
+    animeInstance: null,
     content: [
       {
         word: 'About',
@@ -32,11 +33,16 @@ export default {
     ]
   }),
   mounted() {
-    anime({
-      targets: '.mobile .letter',
-      opacity: 1,
-      delay: anime.stagger(10)
-    })
+    // this.animeInstance = anime({
+    //   targets: '.mobile .letter',
+    //   opacity: 1,
+    //   delay: anime.stagger(10)
+    // })
+  },
+  methods: {
+    speedAnim() {
+      this.animeInstance.seek(this.animeInstance.duration)
+    }
   }
 }
 </script>

@@ -79,7 +79,6 @@ export default {
     .letter {
       background-color: #41b171;
       color: #11361e;
-      cursor: pointer;
     }
   }
 }
@@ -96,7 +95,6 @@ export default {
     &:hover {
       background-color: #41b171;
       color: #11361e;
-      cursor: pointer;
     }
   }
   .word {

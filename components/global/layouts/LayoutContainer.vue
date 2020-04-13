@@ -15,5 +15,6 @@ export default {}
   background-color: black;
   /* background-image: url('~assets/background.png'); */
   background-position: center;
+  cursor: url('~assets/cursor.png'), auto;
 }
 </style>

@@ -94,7 +94,7 @@ export default {
   },
   mounted() {
     this.animeInstance = anime({
-      targets: '.letter',
+      targets: '.is-hidden-mobile .letter',
       opacity: 1,
       delay: anime.stagger(10)
     })
@@ -129,6 +129,7 @@ export default {
 <style lang="scss">
 .letter {
   opacity: 0;
+  will-change: opacity;
 }
 .console-block {
   // display: flex;
