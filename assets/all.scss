@@ -22,29 +22,16 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   .crt {
-    animation: none;
+    animation: none !important;
   }
 }
 
 .crt {
-  animation: textShadow 1.6s infinite;
-
-  &::before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-      linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    z-index: 2;
-    background-size: 100% 2px, 3px 100%;
-    pointer-events: none;
-  }
+  animation: textflicker 0.5s infinite;
+  // border-radius: $border-radius;
 
   &::after {
+    border-radius: $border-radius;
     content: ' ';
     display: block;
     position: absolute;
@@ -52,10 +39,34 @@ html {
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(18, 16, 16, 0.1);
+    background: transparentize($screen-background, 0.9);
     opacity: 0;
     z-index: 2;
     pointer-events: none;
-    animation: flicker 0.5s infinite;
+    animation: flicker 0.15s infinite;
+  }
+  // scanlines
+  &::before {
+    border-radius: $border-radius;
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        transparentize($screen-background, 1) 50%,
+        transparentize(darken($screen-background, 10), 0.75) 50%
+      ),
+      linear-gradient(
+        90deg,
+        transparentize($crt-red, 0.94),
+        transparentize($crt-green, 0.98),
+        transparentize($crt-blue, 0.94)
+      );
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
   }
 }

@@ -108,6 +108,7 @@ export default {
       if (foundContent && foundContent !== this.currentViewing) {
         this.currentViewing = foundContent
         if (this.viewed > 0) this.viewed -= 1
+
         const content = document.querySelectorAll('.content-side .letter')
 
         content.forEach((domItem) => {
@@ -129,18 +130,13 @@ export default {
 <style lang="scss">
 .letter {
   opacity: 0;
-  will-change: opacity;
-}
-.console-block {
-  // display: flex;
-  // flex-direction: row;
 }
 
 .container {
   background-color: #11361e;
   padding: 2rem;
   box-shadow: inset 0 0 100px black;
-  border-radius: 50px;
+  border-radius: $border-radius;
 }
 
 .content-side {

@@ -10,11 +10,10 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss">
 .dev-container {
-  background-color: black;
-  /* background-image: url('~assets/background.png'); */
-  background-position: center;
+  background-color: $screen-background;
+
   cursor: url('~assets/cursor.png'), auto;
 }
 </style>
