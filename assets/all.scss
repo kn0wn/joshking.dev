@@ -28,7 +28,6 @@ html {
 
 .crt {
   animation: textShadow 1.6s infinite;
-  will-change: text-shadow, opacity;
 
   &::before {
     content: ' ';
