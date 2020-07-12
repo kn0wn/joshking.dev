@@ -3,48 +3,32 @@
     "id": "vue-cosha",
     "name": "VueCosha",
     "image": "",
-    "description": "Tempor laborum in do qui. Ipsum et labore ipsum officia qui eiusmod et consectetur fugiat consequat labore cupidatat excepteur irure. Ipsum dolor mollit enim culpa sit laborum laborum voluptate nostrud est magna Lorem.",
-    "links": [
-      {
-        "type": 1,
-        "url": "asd"
-      }
-    ]
+    "description": "VueCosha is a vue directive wrapper for the cosha library. Cosha adds colourful shadows to your images.",
+    "location": "https://github.com/kn0wn/vue-cosha",
+    "written": ["javascript", "vue"]
   },
   {
     "id": "personal-site",
     "name": "Personal Website",
     "image": "",
     "description": "This website is built using Vite ('the opinionated web dev build tool'), using Vue3 and vue-router-next. It is also using tailwind for styling.",
-    "links": [
-      {
-        "type": 1,
-        "url": "asd"
-      }
-    ]
+    "location": "https://github.com/kn0wn/joshking.dev",
+    "written": ["javascript", "vue"]
   },
   {
     "id": "revision",
     "name": "Revision",
-    "image": "",
-    "description": "Revision was a hacked Minecraft client.",
-    "links": [
-      {
-        "type": 1,
-        "url": "asd"
-      }
-    ]
+    "image": "https://gamepedia.cursecdn.com/minecraft_gamepedia/e/ed/Enchanted_Golden_Apple_JE2_BE2.gif?version=f82edf97a29f7f3ff3a1ca81b825deeb",
+    "description": "Revision was a hacked Minecraft client that featured hacks such as wallhack, blockESP and auto item replacement.",
+    "location": "",
+    "written": ["java"]
   },
   {
-    "id": "hooch",
-    "name": "Hooch",
+    "id": "notbotapi",
+    "name": "NotBotAPI",
     "image": "",
-    "description": "Revision was a hacked Minecraft client.",
-    "links": [
-      {
-        "type": 1,
-        "url": "asd"
-      }
-    ]
+    "description": "NotBotAPI was a pluggable api that allowed developers to perfom more 'human-like' automated actions by simulating real user inputs.",
+    "location": "",
+    "written": ["java"]
   }
 ]

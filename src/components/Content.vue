@@ -1,7 +1,11 @@
 <template>
   <div class="col-span-2 row-span-3">
     <div id="content-projects" style="scroll-margin-top: 2rem;">
-      <block v-for="project in projects" :key="project.id">
+      <block
+        v-for="project in projects"
+        :key="project.id"
+        :location="project.location"
+      >
         <figure class="w-24 h-24 mr-4 hidden md:block">
           <svg viewBox="0 0 16 16" class="w-24 h-24 text-white fill-current">
             <path
@@ -17,30 +21,48 @@
           <p class="text-sm leading-tight tracking-tight mt-2">
             {{ project.description }}
           </p>
+          <div class="flex text-xs mt-2">
+            <p
+              v-for="(language, id) in project.written"
+              :key="`language-${id}`"
+            >
+              {{ language }}&nbsp;
+            </p>
+          </div>
         </div>
       </block>
     </div>
     <div id="content-books" style="scroll-margin-top: 2rem;">
       <block v-for="book in books" :key="book.id">
-        <img
-          src="https://pbs.twimg.com/profile_images/1280911578477494274/WdH5b_H2_200x200.jpg"
-          alt=""
-          class="rounded w-24 h-24 mr-2 hidden md:block"
-        />
+        <figure class="w-24 h-24 mr-4 hidden md:block">
+          <svg class="w-24 h-24 text-white fill-current" viewBox="0 0 20 20">
+            <path
+              d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"
+            ></path>
+          </svg>
+        </figure>
         <p>{{ book.name }}</p>
       </block>
     </div>
     <div id="content-blogs" style="scroll-margin-top: 2rem;">
-      <block v-for="blog in blogs" :key="blog.id">
+      <block
+        v-for="blog in blogs"
+        :key="blog.id"
+        :location="`/posts/${blog.id}`"
+      >
         <img
           src="https://pbs.twimg.com/profile_images/1280911578477494274/WdH5b_H2_200x200.jpg"
           alt=""
           class="rounded w-24 h-24 mr-2 hidden md:block"
         />
-        <router-link :to="`/posts/${blog.id}`">
-          <h3>{{ blog.name }}</h3>
-          <p>{{ blog.description }}</p>
-        </router-link>
+        <div class="flex flex-col self-center">
+          <h3 class="text-white font-display tracking-wide">
+            {{ blog.name }}
+          </h3>
+          <p class="text-sm leading-tight tracking-tight mt-2">
+            {{ blog.description }}
+          </p>
+        </div>
       </block>
     </div>
   </div>
