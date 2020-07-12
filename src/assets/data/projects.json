@@ -1,0 +1,50 @@
+[
+  {
+    "id": "vue-cosha",
+    "name": "VueCosha",
+    "image": "",
+    "description": "Tempor laborum in do qui. Ipsum et labore ipsum officia qui eiusmod et consectetur fugiat consequat labore cupidatat excepteur irure. Ipsum dolor mollit enim culpa sit laborum laborum voluptate nostrud est magna Lorem.",
+    "links": [
+      {
+        "type": 1,
+        "url": "asd"
+      }
+    ]
+  },
+  {
+    "id": "personal-site",
+    "name": "Personal Website",
+    "image": "",
+    "description": "This website is built using Vite ('the opinionated web dev build tool'), using Vue3 and vue-router-next. It is also using tailwind for styling.",
+    "links": [
+      {
+        "type": 1,
+        "url": "asd"
+      }
+    ]
+  },
+  {
+    "id": "revision",
+    "name": "Revision",
+    "image": "",
+    "description": "Revision was a hacked Minecraft client.",
+    "links": [
+      {
+        "type": 1,
+        "url": "asd"
+      }
+    ]
+  },
+  {
+    "id": "hooch",
+    "name": "Hooch",
+    "image": "",
+    "description": "Revision was a hacked Minecraft client.",
+    "links": [
+      {
+        "type": 1,
+        "url": "asd"
+      }
+    ]
+  }
+]

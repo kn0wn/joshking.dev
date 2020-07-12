@@ -1,0 +1,20 @@
+{
+  "name": "personal",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=10.16.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "tailwindcss": "^1.4.6",
+    "vue": "^3.0.0-beta.15",
+    "vue-router": "^4.0.0-beta.2"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.0-beta.15",
+    "vite": "^1.0.0-beta.11"
+  }
+}

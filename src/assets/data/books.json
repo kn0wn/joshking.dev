@@ -1,0 +1,59 @@
+[
+  {
+    "id": "a-brief-history-of-time",
+    "name": "A Briefer history of time",
+    "review": "asdasd",
+    "ratings": [
+      {
+        "id": "ease",
+        "value": 2
+      },
+      {
+        "id": "recommend",
+        "value": true
+      },
+      {
+        "id": "length",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "id": "solaris",
+    "name": "Solaris",
+    "review": "asdasd",
+    "ratings": [
+      {
+        "id": "ease",
+        "value": 2
+      },
+      {
+        "id": "recommend",
+        "value": true
+      },
+      {
+        "id": "length",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "id": "mediations",
+    "name": "Meditations",
+    "review": "asdasd",
+    "ratings": [
+      {
+        "id": "ease",
+        "value": 2
+      },
+      {
+        "id": "recommend",
+        "value": true
+      },
+      {
+        "id": "length",
+        "value": 4
+      }
+    ]
+  }
+]
