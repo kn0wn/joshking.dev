@@ -2,7 +2,7 @@
   <div class="col-span-2 row-span-3">
     <div id="content-projects" style="scroll-margin-top: 2rem;">
       <block v-for="project in projects" :key="project.id">
-        <figure class="w-24 h-24 mr-4">
+        <figure class="w-24 h-24 mr-4 hidden md:block">
           <svg viewBox="0 0 16 16" class="w-24 h-24 text-white fill-current">
             <path
               fill-rule="evenodd"
@@ -25,7 +25,7 @@
         <img
           src="https://pbs.twimg.com/profile_images/1280911578477494274/WdH5b_H2_200x200.jpg"
           alt=""
-          class="rounded w-24 h-24 mr-2"
+          class="rounded w-24 h-24 mr-2 hidden md:block"
         />
         <p>{{ book.name }}</p>
       </block>
@@ -35,7 +35,7 @@
         <img
           src="https://pbs.twimg.com/profile_images/1280911578477494274/WdH5b_H2_200x200.jpg"
           alt=""
-          class="rounded w-24 h-24 mr-2"
+          class="rounded w-24 h-24 mr-2 hidden md:block"
         />
         <router-link :to="`/posts/${blog.id}`">
           <h3>{{ blog.name }}</h3>

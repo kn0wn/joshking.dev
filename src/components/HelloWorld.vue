@@ -1,9 +1,9 @@
 <template>
   <div class="hello-world">
-    <h1 class="text-white text-4xl font-display">
-      👋 Hello, <br />I'm Josh King.
+    <h1 class="text-white text-4xl font-display mb-4">
+      <span class="wave">👋</span> Hello, <br />I'm Josh King.
     </h1>
-    <p class="tracking-tight">
+    <p class="tracking-tight mb-4">
       Web developer based in London. Specialising in
       <a
         href="https://nuxtjs.org/"
@@ -21,7 +21,7 @@
       >.
     </p>
 
-    <nav>
+    <nav class="hidden md:block">
       <button
         :class="{ 'bg-opacity-25': current !== 'projects' }"
         @click="scrollTo('projects')"
@@ -85,29 +85,25 @@ export default {
   name: "HelloWorld",
   setup() {
     const current = ref("projects");
-    const scrollTo = position => {
+    const scrollTo = (position) => {
       document
         .querySelector(`#content-${position}`)
         .scrollIntoView({ behavior: "smooth" });
     };
 
     onMounted(() => {
-      console.log("component is mounted!");
-
       const observer = new IntersectionObserver(
         (entries, observer) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
               current.value = entry.target.id.split("content-")[1];
-              console.log(entry);
-              console.log(current.value);
             }
           });
         },
         {
           root: null,
           rootMargin: "20%",
-          threshold: 1.0
+          threshold: 1.0,
         }
       );
 
@@ -118,16 +114,51 @@ export default {
 
     return { current, scrollTo };
   },
-  props: {
-    msg: String
-  }
 };
 </script>
 
 <style lang="postcss" scoped>
 .hello-world {
-  height: calc(100vh - 4rem);
   top: 2rem;
-  @apply row-span-3 col-span-1 flex flex-wrap flex-col justify-between sticky;
+  @apply row-span-3 col-span-1 flex flex-wrap flex-col justify-between;
+}
+@screen md {
+  .hello-world {
+    height: calc(100vh - 4rem);
+    @apply sticky;
+  }
+}
+
+.wave {
+  animation: wave-animation 2.5s infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 </style>
