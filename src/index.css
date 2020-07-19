@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
+
+.dev_underline {
+  @apply transition-all ease-in-out duration-500;
+
+  background-image: linear-gradient(theme("colors.blue"), theme("colors.blue"));
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: auto 10%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.dev_underline:hover {
+  @apply cursor-pointer;
+
+  background-size: auto 100%;
+}
+
+.content-section {
+  @apply mt-4;
+
+  scroll-margin-top: 2rem;
+}
+
 @tailwind utilities;

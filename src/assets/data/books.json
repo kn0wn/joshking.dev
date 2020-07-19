@@ -2,6 +2,7 @@
   {
     "id": "a-brief-history-of-time",
     "name": "A Briefer history of time",
+    "author": "Stephen Hawkins",
     "review": "asdasd",
     "ratings": [
       {
@@ -14,18 +15,19 @@
       },
       {
         "id": "length",
-        "value": 4
+        "value": 2
       }
     ]
   },
   {
     "id": "solaris",
     "name": "Solaris",
+    "author": "Stanisław Lem",
     "review": "asdasd",
     "ratings": [
       {
         "id": "ease",
-        "value": 2
+        "value": 3
       },
       {
         "id": "recommend",
@@ -33,18 +35,19 @@
       },
       {
         "id": "length",
-        "value": 4
+        "value": 3
       }
     ]
   },
   {
     "id": "mediations",
     "name": "Meditations",
+    "author": "Marcus Aurelius",
     "review": "asdasd",
     "ratings": [
       {
         "id": "ease",
-        "value": 2
+        "value": 4
       },
       {
         "id": "recommend",

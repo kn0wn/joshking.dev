@@ -3,18 +3,15 @@
     <h1 class="text-white text-4xl font-display mb-4">
       <span class="wave">👋</span> Hello, <br />I'm Josh King.
     </h1>
-    <p class="tracking-tight mb-4">
+    <p class="tracking-tight mb-4 md:text-lg">
       Web developer based in London. Specialising in
-      <a
-        href="https://nuxtjs.org/"
-        class="border-b-2 border-blue cursor-pointer"
-      >
+      <a href="https://nuxtjs.org/" class="dev_underline" target="_blank">
         Nuxt.js</a
       >
       and serverless technologies. Building online experiences for companies
       such as Google and Tesla. Currently the Head of Digital at
       <a
-        class="border-b-2 border-blue cursor-pointer"
+        class="dev_underline"
         href="//rcco.uk?utm_source=joshking"
         target="_blank"
         >RCCO</a
@@ -122,6 +119,7 @@ export default {
   top: 2rem;
   @apply row-span-3 col-span-1 flex flex-wrap flex-col justify-between;
 }
+
 @screen md {
   .hello-world {
     height: calc(100vh - 4rem);
