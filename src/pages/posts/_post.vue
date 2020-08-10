@@ -9,32 +9,32 @@
 </template>
 
 <script>
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-import blogs from "../../assets/data/blogs.json";
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import blogs from '../../assets/data/blogs.json'
 
 export default {
   setup() {
-    const route = useRoute();
+    const route = useRoute()
 
     const currentLocation = computed(() => {
-      const { matched, ...rest } = route;
-      return rest;
-    });
+      const { matched, ...rest } = route
+      return rest
+    })
 
     const post = computed(() => {
-      const routeId = currentLocation.value.params.id;
-      const found = blogs.find(({ id }) => id === routeId);
+      const routeId = currentLocation.value.params.id
+      const found = blogs.find(({ id }) => id === routeId)
 
-      return found;
-    });
+      return found
+    })
 
     return {
       currentLocation,
-      post
-    };
-  }
-};
+      post,
+    }
+  },
+}
 </script>
 
 <style></style>

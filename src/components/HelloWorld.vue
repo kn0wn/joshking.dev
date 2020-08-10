@@ -18,29 +18,6 @@
       >.
     </p>
 
-    <nav class="hidden md:block">
-      <button
-        :class="{ 'bg-opacity-25': current !== 'projects' }"
-        @click="scrollTo('projects')"
-        class="bg-blue my-2 rounded-sm p-2 w-full"
-      >
-        projects
-      </button>
-      <button
-        :class="{ 'bg-opacity-25': current !== 'books' }"
-        @click="scrollTo('books')"
-        class="bg-blue my-2 rounded-sm p-2 w-full"
-      >
-        books
-      </button>
-      <button
-        :class="{ 'bg-opacity-25': current !== 'blogs' }"
-        @click="scrollTo('blogs')"
-        class="bg-blue my-2 rounded-sm p-2 w-full"
-      >
-        blog
-      </button>
-    </nav>
     <aside class="flex">
       <img
         src="https://pbs.twimg.com/profile_images/1280911578477494274/WdH5b_H2_200x200.jpg"
@@ -76,42 +53,11 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue'
 
 export default {
-  name: "HelloWorld",
-  setup() {
-    const current = ref("projects");
-    const scrollTo = (position) => {
-      document
-        .querySelector(`#content-${position}`)
-        .scrollIntoView({ behavior: "smooth" });
-    };
-
-    onMounted(() => {
-      const observer = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              current.value = entry.target.id.split("content-")[1];
-            }
-          });
-        },
-        {
-          root: null,
-          rootMargin: "20%",
-          threshold: 1.0,
-        }
-      );
-
-      observer.observe(document.querySelector("#content-books"));
-      observer.observe(document.querySelector("#content-projects"));
-      observer.observe(document.querySelector("#content-blogs"));
-    });
-
-    return { current, scrollTo };
-  },
-};
+  name: 'HelloWorld',
+}
 </script>
 
 <style lang="postcss" scoped>
