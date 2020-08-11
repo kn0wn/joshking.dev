@@ -1,22 +1,26 @@
 <template>
   <div class="hello-world">
-    <h1 class="text-white text-4xl font-display mb-4">
-      <span class="wave">👋</span> Hello, <br />I'm Josh King.
-    </h1>
-    <p class="tracking-tight mb-4 md:text-lg">
-      Web developer based in London. Specialising in
-      <a href="https://nuxtjs.org/" class="dev_underline" target="_blank">
-        Nuxt.js</a
-      >
-      and serverless technologies. Building online experiences for companies
-      such as Google and Tesla. Currently the Head of Digital at
-      <a
-        class="dev_underline"
-        href="//rcco.uk?utm_source=joshking"
-        target="_blank"
-        >RCCO</a
-      >.
-    </p>
+    <div>
+      <h1 class="text-white text-4xl font-display mb-4">
+        <span class="wave">👋</span> Hello, <br />I'm Josh King.
+      </h1>
+      <p class="tracking-tight mb-4 md:text-lg">
+        Web developer based in London. Specialising in
+        <a href="https://nuxtjs.org/" class="dev_underline" target="_blank">
+          Nuxt.js</a
+        >
+        and serverless technologies. Building online experiences for companies
+        such as Google and Tesla. Currently the Head of Digital at
+        <a
+          class="dev_underline"
+          href="//rcco.uk?utm_source=joshking"
+          target="_blank"
+          >RCCO</a
+        >.
+      </p>
+    </div>
+
+    <blogs />
 
     <aside class="flex">
       <img
@@ -53,24 +57,21 @@
 </template>
 
 <script>
+import Blogs from './Blogs.vue'
+
 import { ref, onMounted } from 'vue'
 
 export default {
   name: 'HelloWorld',
+  components: {
+    Blogs,
+  },
 }
 </script>
 
 <style lang="postcss" scoped>
 .hello-world {
-  top: 2rem;
   @apply row-span-3 col-span-1 flex flex-wrap flex-col justify-between;
-}
-
-@screen md {
-  .hello-world {
-    height: calc(100vh - 4rem);
-    @apply sticky;
-  }
 }
 
 .wave {

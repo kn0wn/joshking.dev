@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="flex items-center justify-center h-full">
     <home />
   </main>
 </template>

@@ -1,14 +1,15 @@
 <template>
-  <content-block :loading="loading">
-    <img
-      class="w-32"
-      :src="`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`"
-    />
-    <div class="text-center">
-      <p>{{ weather.name }}</p>
-      <p>{{ weather.weather[0].description }}</p>
-      <p>{{ parseInt(weather.main.temp - 273.15) }}</p>
-    </div>
+  <content-block :loading="loading" name="Weather" url="">
+    <figure class="w-24 h-24 mb-2">
+      <img
+        class="w-24 h-24"
+        :src="`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`"
+      />
+    </figure>
+
+    <p>{{ weather.name }}</p>
+    <p>{{ weather.weather[0].description }}</p>
+    <p>{{ parseInt(weather.main.temp - 273.15) }}</p>
   </content-block>
 </template>
 
@@ -24,7 +25,7 @@ export default {
   },
   setup() {
     const { data, loading } = useFetch(
-      'https://v1.nocodeapi.com/kn0wn/ow/PFEGhtJiKKpSDKjf/byCityName?q=London'
+      'https://v1.nocodeapi.com/kn0wn/ow/PFEGhtJiKKpSDKjf/byCityName?q=London&api_key=AjwkBiIJTIEczaKcC'
     )
 
     return {

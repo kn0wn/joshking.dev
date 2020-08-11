@@ -4,7 +4,7 @@
 .dev_underline {
   @apply transition-all ease-in-out duration-500;
 
-  background-image: linear-gradient(theme("colors.blue"), theme("colors.blue"));
+  background-image: linear-gradient(theme('colors.blue'), theme('colors.blue'));
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: auto 10%;
