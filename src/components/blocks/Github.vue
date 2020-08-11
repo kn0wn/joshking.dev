@@ -8,15 +8,10 @@
         ></path>
       </svg>
     </figure>
-    <p>{{ popular.full_name }}</p>
+    <a :href="popular.html_url" class="text-blue" target="_blank">
+      {{ popular.full_name }}
+    </a>
     <p>Stars: {{ popular.stargazers_count }}</p>
-    <!-- <a
-      :href="popular.html_url"
-      target="_blank"
-      class="bg-blue py-1 px-4 text-sm rounded-sm"
-    >
-      See more
-    </a> -->
   </content-block>
 </template>
 
