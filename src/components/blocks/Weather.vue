@@ -3,7 +3,7 @@
     <figure class="w-24 h-24 mb-2">
       <img
         class="w-24 h-24"
-        :src="`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`"
+        :src="`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`"
       />
     </figure>
 
