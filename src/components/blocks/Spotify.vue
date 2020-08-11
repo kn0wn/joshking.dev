@@ -4,8 +4,8 @@
       <img class="w-24 h-24" :src="data.items[0].track.album.images[0].url" />
     </figure>
 
-    <p>{{ data.items[0].track.album.name }}</p>
     <p>{{ data.items[0].track.name }}</p>
+    <p>{{ data.items[0].track.album.name }}</p>
   </content-block>
 </template>
 

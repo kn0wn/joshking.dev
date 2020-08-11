@@ -2,14 +2,14 @@
 @tailwind components;
 
 .dev_underline {
-  @apply transition-all ease-in-out duration-500;
+  @apply transition-all ease-in-out duration-200;
 
   background-image: linear-gradient(theme('colors.blue'), theme('colors.blue'));
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: auto 10%;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
 }
 
 .dev_underline:hover {
