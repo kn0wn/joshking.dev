@@ -1,46 +1,27 @@
 <template>
   <div class="hello-world">
-    <h1 class="text-white text-4xl font-display mb-4">
-      <span class="wave">👋</span> Hello, <br />I'm Josh King.
-    </h1>
-    <p class="tracking-tight mb-4 md:text-lg">
-      Web developer based in London. Specialising in
-      <a href="https://nuxtjs.org/" class="dev_underline" target="_blank">
-        Nuxt.js</a
-      >
-      and serverless technologies. Building online experiences for companies
-      such as Google and Tesla. Currently the Head of Digital at
-      <a
-        class="dev_underline"
-        href="//rcco.uk?utm_source=joshking"
-        target="_blank"
-        >RCCO</a
-      >.
-    </p>
+    <div>
+      <h1 class="text-white text-4xl font-display mb-4">
+        <span class="wave">👋</span> Hello, <br />I'm Josh King.
+      </h1>
+      <p class="tracking-tight mb-4 md:text-lg">
+        Web developer based in London. Specialising in
+        <a href="https://nuxtjs.org/" class="dev_underline" target="_blank">
+          Nuxt.js</a
+        >
+        and serverless technologies. Building online experiences for companies
+        such as Google and Tesla. Currently the Head of Digital at
+        <a
+          class="dev_underline"
+          href="//rcco.uk?utm_source=joshking"
+          target="_blank"
+          >RCCO</a
+        >.
+      </p>
+    </div>
 
-    <nav class="hidden md:block">
-      <button
-        :class="{ 'bg-opacity-25': current !== 'projects' }"
-        @click="scrollTo('projects')"
-        class="bg-blue my-2 rounded-sm p-2 w-full"
-      >
-        projects
-      </button>
-      <button
-        :class="{ 'bg-opacity-25': current !== 'books' }"
-        @click="scrollTo('books')"
-        class="bg-blue my-2 rounded-sm p-2 w-full"
-      >
-        books
-      </button>
-      <button
-        :class="{ 'bg-opacity-25': current !== 'blogs' }"
-        @click="scrollTo('blogs')"
-        class="bg-blue my-2 rounded-sm p-2 w-full"
-      >
-        blog
-      </button>
-    </nav>
+    <blogs />
+
     <aside class="flex">
       <img
         src="https://pbs.twimg.com/profile_images/1280911578477494274/WdH5b_H2_200x200.jpg"
@@ -76,55 +57,21 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import Blogs from './Blogs.vue'
+
+import { ref, onMounted } from 'vue'
 
 export default {
-  name: "HelloWorld",
-  setup() {
-    const current = ref("projects");
-    const scrollTo = (position) => {
-      document
-        .querySelector(`#content-${position}`)
-        .scrollIntoView({ behavior: "smooth" });
-    };
-
-    onMounted(() => {
-      const observer = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              current.value = entry.target.id.split("content-")[1];
-            }
-          });
-        },
-        {
-          root: null,
-          rootMargin: "20%",
-          threshold: 1.0,
-        }
-      );
-
-      observer.observe(document.querySelector("#content-books"));
-      observer.observe(document.querySelector("#content-projects"));
-      observer.observe(document.querySelector("#content-blogs"));
-    });
-
-    return { current, scrollTo };
+  name: 'HelloWorld',
+  components: {
+    Blogs,
   },
-};
+}
 </script>
 
 <style lang="postcss" scoped>
 .hello-world {
-  top: 2rem;
   @apply row-span-3 col-span-1 flex flex-wrap flex-col justify-between;
-}
-
-@screen md {
-  .hello-world {
-    height: calc(100vh - 4rem);
-    @apply sticky;
-  }
 }
 
 .wave {

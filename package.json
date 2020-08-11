@@ -1,6 +1,6 @@
 {
   "name": "personal",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "engines": {
     "node": ">=10.16.0"
   },
@@ -9,12 +9,12 @@
     "build": "vite build"
   },
   "dependencies": {
-    "tailwindcss": "^1.5.1",
-    "vue": "^3.0.0-rc.1",
-    "vue-router": "^4.0.0-beta.2"
+    "tailwindcss": "^1.6.2",
+    "vue": "^3.0.0-rc.5"
   },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.0-rc.1",
-    "vite": "^1.0.0-rc.1"
+    "@vue/compiler-sfc": "^3.0.0-rc.5",
+    "prettier": "^2.0.5",
+    "vite": "^1.0.0-rc.4"
   }
 }

@@ -1,11 +1,16 @@
 <template>
-  <main>
-    <router-view />
+  <main class="flex items-center justify-center h-full">
+    <home />
   </main>
 </template>
 
 <script>
+import Home from './pages/home.vue'
+
 export default {
-  name: "App"
-};
+  name: 'App',
+  components: {
+    Home,
+  },
+}
 </script>
