@@ -1,4 +1,4 @@
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
 
 export default function useFetch(url, type = {}, headers) {
   const data = ref(type)
@@ -14,8 +14,6 @@ export default function useFetch(url, type = {}, headers) {
     const response = await fetch(
       url,
       {
-        method: 'get',
-        mode: 'cors',
         headers: getHeaders,
       }
     )
@@ -25,7 +23,7 @@ export default function useFetch(url, type = {}, headers) {
     data.value = json
   }
 
-  onMounted(getData)
+  onBeforeMount(getData)
 
   return {
     data,

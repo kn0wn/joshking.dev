@@ -8,7 +8,7 @@
         ></path>
       </svg>
     </figure>
-    <a :href="popular.html_url" class="text-blue" target="_blank">
+    <a :href="popular.html_url" class="dev_underline" target="_blank">
       {{ popular.full_name }}
     </a>
     <p>Stars: {{ popular.stargazers_count }}</p>
@@ -18,7 +18,7 @@
 <script>
 import ContentBlock from '../modules/ContentBlock.vue'
 
-import { computed, onMounted, watch } from 'vue'
+import { computed } from 'vue'
 
 import useFetch from '../../use/useFetch.js'
 
@@ -27,17 +27,13 @@ export default {
     ContentBlock,
   },
   setup() {
-    const { data: github, loading } = useFetch(
-      'https://v1.nocodeapi.com/kn0wn/github/hIBkUOtwxvxDjBZc/repos?username=kn0wn&api_key=AjwkBiIJTIEczaKcC&visibility=public',
+    const { data, loading } = useFetch(
+      'https://api.github.com/users/kn0wn/repos',
       []
     )
 
-    const stars = computed(() =>
-      github.value.reduce((acc, curr) => acc + curr.stargazers_count, 0)
-    )
-
     const popular = computed(() => {
-      const sorted = github.value.sort(
+      const sorted = data.value.sort(
         (a, b) => b.stargazers_count - a.stargazers_count
       )
 
@@ -45,9 +41,8 @@ export default {
     })
 
     return {
-      github,
+      data,
       loading,
-      stars,
       popular,
     }
   },
