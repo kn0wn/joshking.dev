@@ -10,7 +10,7 @@
           Nuxt.js</a
         >
         and serverless technologies. Building online experiences for companies
-        such as Google and Tesla. Currently the Head of Digital at
+        such as Google and Tesla. Currently at
         <a
           class="dev_underline"
           href="//rcco.uk?utm_source=joshking"
@@ -71,7 +71,7 @@ export default {
 
 <style lang="postcss" scoped>
 .hello-world {
-  @apply row-span-3 col-span-1 flex flex-wrap flex-col justify-between;
+  @apply row-span-3 col-span-1 flex flex-no-wrap flex-col justify-between;
 }
 
 .wave {
