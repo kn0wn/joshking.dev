@@ -6,7 +6,7 @@
           <h1 class="mb-8 font-mono text-6xl text-gray-800 dark:text-white">
             👋 Hello
           </h1>
-          <p class="mb-8 text-lg leading-6 text-gray-900 dark:text-gray-300">
+          <p class="mb-8 text-lg leading-6 text-gray-900 dark:text-gray-100">
             Web developer based in London. Specialising in front-end development
             and serverless technologies. Building online experiences for clients
             such as Google and Tesla. Engineering Lead at
