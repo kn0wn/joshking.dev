@@ -27,7 +27,7 @@ const props = defineProps({
 
 <style lang="postcss">
 .link {
-  @apply relative;
+  @apply relative text-gray-900 dark:text-gray-300;
 
   &:after {
     content: "";
