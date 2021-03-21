@@ -4,7 +4,7 @@
       <div class="flex justify-between">
         <div class="lg:w-1/2">
           <h1 class="mb-8 font-mono text-6xl text-gray-800 dark:text-white">
-            👋 Hello
+            🤖
           </h1>
           <p class="mb-8 text-lg leading-6 text-gray-900 dark:text-gray-100">
             Web developer based in London. Specialising in front-end development
@@ -14,7 +14,7 @@
           </p>
           <Github />
 
-          <router-link
+          <!-- <router-link
             class="mb-8 items-center border border-blue-600 inline-flex p-2 rounded group"
             to="/snippets"
           >
@@ -24,7 +24,7 @@
             >
               New
             </div>
-          </router-link>
+          </router-link> -->
 
           <ul class="flex">
             <li
@@ -35,15 +35,6 @@
               <Link :link="link">{{ name }}</Link>
             </li>
           </ul>
-        </div>
-        <div class="hidden w-1/3 grid-cols-3 grid-rows-3 gap-4 2xl:grid">
-          <div class="w-full h-full bg-blue-600 rounded" />
-          <div
-            class="w-full h-full col-start-2 row-start-2 border-2 border-blue-600 rounded"
-          />
-          <div
-            class="w-full h-full col-start-3 row-start-3 bg-blue-600 rounded"
-          />
         </div>
       </div>
     </div>

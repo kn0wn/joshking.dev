@@ -1,7 +1,7 @@
 <template>
   <p class="mb-2 dark:text-white">Latest project</p>
   <aside
-    class="flex items-center justify-between px-8 py-4 mb-8 border border-gray-200 rounded md:w-2/3 dark:text-white"
+    class="flex items-center justify-between px-8 py-4 mb-8 border border-blue-600 dark:border-gray-200 rounded md:w-2/3 dark:text-white"
   >
     <div class="flex items-center">
       <svg viewBox="0 0 16 16" class="w-6 h-6 mr-6 fill-current">
