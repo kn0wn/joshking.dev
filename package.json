@@ -7,14 +7,15 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.0.7"
+    "vue": "^3.0.7",
+    "vue-router": "^4.0.9"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.1.5",
-    "@vue/compiler-sfc": "^3.0.7",
-    "postcss-nesting": "^7.0.1",
-    "vite": "^2.1.2",
-    "vite-plugin-pages": "^0.7.2",
-    "vite-plugin-windicss": "^0.9.5"
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.1.1",
+    "postcss-nesting": "^8.0.1",
+    "vite": "^2.3.7",
+    "vite-plugin-pages": "^0.13.1",
+    "vite-plugin-windicss": "^1.0.4"
   }
 }
