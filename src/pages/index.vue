@@ -2,15 +2,13 @@
   <main class="flex items-center w-screen h-screen border-t-4 border-blue-600">
     <div class="container px-8 mx-auto md:px-16 lg:px-44">
       <div class="flex justify-between">
-        <div class="lg:w-1/2 transition">
-          <h1 class="mb-8 font-mono text-6xl text-gray-800 dark:text-white">
-            🤖
-          </h1>
+        <div class="lg:w-1/2">
+          <h1 class="mb-8 font-mono text-6xl">🤖</h1>
 
           <transition name="fade">
             <p
               v-show="stage >= 500"
-              class="mb-8 text-lg leading-6 text-gray-900 dark:text-gray-100"
+              class="mb-8 text-lg leading-6 text-gray-900 dark:text-white"
             >
               Web developer based in London. Specialising in front-end
               development and serverless technologies. Building online
