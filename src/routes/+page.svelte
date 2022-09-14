@@ -29,7 +29,7 @@
 		<h1 class="text-4xl">Josh King</h1>
 		<p class="tabular-nums text-4xl">{time}</p>
 	</div>
-	<h2 class="sm:text-6xl md:text-7xl xl:text-[5.5rem] text-5xl leading-[1.05] font-mono py-6">
+	<h2 class="sm:text-6xl md:text-7xl xl:text-[5.5rem] text-4xl leading-[1.05] font-mono py-6">
 		<span class="text-red">Product interface engineer.</span> Focusing on
 		<i>serverless technologies.</i>
 		Based in <span class="text-red">London.</span> Passionate about
