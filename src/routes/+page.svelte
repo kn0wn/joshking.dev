@@ -24,12 +24,12 @@
 	$: time = `${padNumber(hours)}:${padNumber(minutes)}:${padNumber(seconds)}`;
 </script>
 
-<div>
+<div class="font-mono selection:bg-red/50">
 	<div class="grid grid-cols-2">
-		<h1 class="text-4xl">Josh King</h1>
-		<p class="tabular-nums text-4xl">{time}</p>
+		<h1 class="text-2xl">Josh King</h1>
+		<p class="tabular-nums text-2xl">{time}</p>
 	</div>
-	<h2 class="sm:text-6xl md:text-7xl xl:text-[5.5rem] text-4xl leading-[1.05] font-mono py-6">
+	<h2 class="sm:text-6xl md:text-7xl xl:text-[5rem] text-4xl leading-[1.05] py-6">
 		<span class="text-red">Product interface engineer.</span> Focusing on
 		<i>serverless technologies.</i>
 		Based in <span class="text-red">London.</span> Passionate about
@@ -39,24 +39,24 @@
 		<a target="_blank" href="//rcco.uk" class="underline underline-offset-4 decoration-red">RCCO</a
 		>.
 	</h2>
-	<div class="grid grid-cols-2">
-		<h1 class="text-4xl">Contact →</h1>
+	<div class="grid grid-cols-2 text-2xl">
+		<h3>Contact →</h3>
 		<div>
-			<p class="text-4xl">
+			<p>
 				<a
 					target="_blank"
 					href="//github.com/kn0wn"
 					class="underline underline-offset-4 decoration-red">Github</a
 				>
 			</p>
-			<p class="text-4xl">
+			<p>
 				<a
 					target="_blank"
 					href="//twitter.com/kn0wndev"
 					class="underline underline-offset-4 decoration-red">Twitter</a
 				>
 			</p>
-			<p class="text-4xl">
+			<p>
 				<a
 					target="_blank"
 					href="//www.linkedin.com/in/josh-king-connect/"
