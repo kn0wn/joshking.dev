@@ -8,8 +8,8 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check",
     "check:watch": "svelte-kit sync && svelte-check --watch",
-    "lint": "prettier --check . && eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write '{public,src}/**/*.{css,html,js,svelte}'",
+    "lint": "eslint --fix --quiet src --ext .js,.svelte"
   },
   "devDependencies": {
     "@sveltejs/adapter-netlify": "^2.0.5",

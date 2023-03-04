@@ -1,12 +1,5 @@
 module.exports = {
-  parserOptions: {
-    ecmaVersion: 2019,
-    sourceType: "module",
-  },
-  env: {
-    es6: true,
-    browser: true,
-  },
+  root: true,
   plugins: ["svelte3"],
   overrides: [
     {
@@ -14,4 +7,13 @@ module.exports = {
       processor: "svelte3/svelte3",
     },
   ],
+  env: {
+    browser: true,
+    node: true,
+  },
+  extends: ["eslint:recommended"],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+  },
 };
