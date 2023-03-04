@@ -36,7 +36,12 @@
 		<span class="text-red">architecting</span>
 		complex business requirements into <span class="text-red">sustainable implementations.</span>
 		Currently CTO @
-		<a target="_blank" href="//rcco.uk" class="underline underline-offset-4 decoration-red">RCCO</a
+		<a
+			target="_blank"
+			href="//rcco.uk"
+			class="underline hover:bg-red/50 transition hover:no-underline underline-offset-4 decoration-red"
+		>
+			RCCO</a
 		>.
 	</h2>
 	<div class="grid grid-cols-2 text-2xl">
@@ -46,21 +51,24 @@
 				<a
 					target="_blank"
 					href="//github.com/kn0wn"
-					class="underline underline-offset-4 decoration-red">Github</a
+					class="hover:bg-red/50 transition hover:no-underline underline underline-offset-4 decoration-red"
+					>Github</a
 				>
 			</p>
 			<p>
 				<a
 					target="_blank"
 					href="//twitter.com/kn0wndev"
-					class="underline underline-offset-4 decoration-red">Twitter</a
+					class="hover:bg-red/50 transition hover:no-underline underline underline-offset-4 decoration-red"
+					>Twitter</a
 				>
 			</p>
 			<p>
 				<a
 					target="_blank"
 					href="//www.linkedin.com/in/josh-king-connect/"
-					class="underline underline-offset-4 decoration-red">Linkedin</a
+					class="hover:bg-red/50 transition hover:no-underline underline underline-offset-4 decoration-red"
+					>Linkedin</a
 				>
 			</p>
 		</div>
