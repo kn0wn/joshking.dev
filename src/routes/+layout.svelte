@@ -1,9 +1,9 @@
 <script>
-	import '../app.css';
+  import "../app.css";
 </script>
 
 <div class="w-screen">
-	<div class="p-8">
-		<slot />
-	</div>
+  <div class="container mx-auto p-8">
+    <slot />
+  </div>
 </div>
