@@ -1,7 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import { browser } from "$app/environment";
-
   export let tag = "p";
   export let classes = "";
 
@@ -29,7 +27,7 @@
           encryptedText.substr(0, i) +
           textToEncrypt[i] +
           encryptedText.substr(i + 1);
-      }, Math.floor(Math.random() * 1500));
+      }, Math.floor(Math.random() * 1000));
     }
   }
 
@@ -37,11 +35,15 @@
     if (!slot) return;
     textToEncrypt = slot.textContent.trim();
     decryptText();
-    if (browser) document.body.classList.toggle("opacity-0");
   });
 </script>
 
-<div bind:this={slot}>
+<div
+  bind:this={slot}
+  class="transition-opacity duration-300 {encryptedText
+    ? 'opacity-100'
+    : 'opacity-0'}"
+>
   {#if encryptedText}
     <svelte:element this={tag} class={classes}>
       {encryptedText}

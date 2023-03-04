@@ -114,7 +114,7 @@
       <div class="space-y-1">
         {#each clients as { name, work }}
           <div>
-            <Decrypt tag="h4" classes="text-blue-500">{name}</Decrypt>
+            <Decrypt tag="h2" classes="text-blue-500">{name}</Decrypt>
             <Decrypt tag="p">{work}</Decrypt>
           </div>
         {/each}
