@@ -1,5 +1,6 @@
 <script>
   import Link from "$lib/Link.svelte";
+  import Decrypt from "$lib/Decrypt.svelte";
   import { onMount } from "svelte";
 
   let now = new Date();
@@ -80,10 +81,12 @@
   <div class="border-x-2 border-blue-500 py-2 px-4 sm:grid sm:grid-cols-2">
     <div class="mb-4">
       <p class="mb-1 uppercase text-grey">Who.</p>
-      <h1 class="text-blue-500">Product interface engineer.</h1>
-      <p>
+      <Decrypt tag="h1" classes="text-blue-500">
+        <h1>Product interface engineer.</h1>
+      </Decrypt>
+      <Decrypt tag="p">
         Based in London, United Kingdom. Focusing on serverless technologies
-      </p>
+      </Decrypt>
     </div>
 
     <div class="mb-4">
@@ -92,17 +95,17 @@
         <Link href={website}>
           {company}
         </Link>
-        <p>{role}</p>
-        <p>{timeline}</p>
+        <Decrypt tag="p">{role}</Decrypt>
+        <Decrypt tag="p">{timeline}</Decrypt>
       {/each}
     </div>
 
     <div class="hidden items-center px-6 sm:flex">
       <div>
-        <p class="mb-1 italic">
-          "Everything we see is <br /> perspective, not truth."
-        </p>
-        <p class="text-blue-500">- Marcus Aurelius</p>
+        <Decrypt tag="p" class="mb-1 italic">
+          "Everything we see is perspective, not truth."
+        </Decrypt>
+        <Decrypt tag="p" classes="text-blue-500">- Marcus Aurelius</Decrypt>
       </div>
     </div>
 
@@ -111,8 +114,8 @@
       <div class="space-y-1">
         {#each clients as { name, work }}
           <div>
-            <h1 class="text-blue-500">{name}</h1>
-            <p>{work}</p>
+            <Decrypt tag="h4" classes="text-blue-500">{name}</Decrypt>
+            <Decrypt tag="p">{work}</Decrypt>
           </div>
         {/each}
       </div>
@@ -130,8 +133,8 @@
     </div>
   </div>
   <div class="my-2">
-    <p class="text-sm text-grey">
+    <Decrypt tag="p" classes="text-sm text-grey">
       Built with Svelte & Vite. Font BerkeleyMono.
-    </p>
+    </Decrypt>
   </div>
 </div>
