@@ -1,5 +1,3 @@
-[build.environment]
-  NPM_FLAGS = "--version"
 [build]
-  command = "npx pnpm install --store=node_modules/.pnpm-store && npx pnpm build"
+  command = "pnpm run build"
   publish = "build"
