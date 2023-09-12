@@ -61,8 +61,8 @@
   ];
 </script>
 
-<div class="font-mono selection:bg-blue-500/50 ">
-  <div class="grid grid-cols-2 border-2 border-blue-500 py-2 px-4">
+<div class="font-mono selection:bg-blue-500/50">
+  <div class="grid grid-cols-2 border-2 border-blue-500 px-4 py-2">
     <div class="flex items-center">
       <div class="flex items-center gap-x-2">
         <span class="relative flex h-3 w-3">
@@ -78,7 +78,7 @@
       <p class="text-xl tabular-nums">{time}</p>
     </div>
   </div>
-  <div class="border-x-2 border-blue-500 py-2 px-4 sm:grid sm:grid-cols-2">
+  <div class="border-x-2 border-blue-500 px-4 py-2 sm:grid sm:grid-cols-2">
     <div class="mb-4">
       <p class="mb-1 uppercase text-grey">Who.</p>
       <Decrypt tag="h1" classes="text-blue-500">
@@ -101,12 +101,12 @@
     </div>
 
     <div class="hidden items-center px-6 sm:flex">
-      <div>
+      <!-- <div>
         <Decrypt tag="p" class="mb-1 italic">
           "Everything we see is perspective, not truth."
         </Decrypt>
         <Decrypt tag="p" classes="text-blue-500">- Marcus Aurelius</Decrypt>
-      </div>
+      </div> -->
     </div>
 
     <div>
@@ -122,7 +122,7 @@
     </div>
   </div>
 
-  <div class="col-span-2 border-2  border-blue-500 py-2 px-4">
+  <div class="col-span-2 border-2 border-blue-500 px-4 py-2">
     <p class="mb-1 uppercase text-grey">Contact.</p>
     <div class="flex gap-x-4">
       {#each contact as { name, url }}
