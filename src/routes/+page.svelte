@@ -27,9 +27,9 @@
 
   const work = [
     {
-      company: "RCCO",
+      company: "&above",
       role: "CTO",
-      website: "//rcco.uk",
+      website: "//andabove.com",
       timeline: "2019 - Present",
     },
   ];
@@ -123,7 +123,6 @@
   </div>
 
   <div class="col-span-2 border-2 border-blue-500 px-4 py-2">
-    <p class="mb-1 uppercase text-grey">Contact.</p>
     <div class="flex gap-x-4">
       {#each contact as { name, url }}
         <Link href={url}>

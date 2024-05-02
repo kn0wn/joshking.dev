@@ -22,12 +22,15 @@
 
     for (let i = 0; i < textToEncrypt.length; i++) {
       if (textToEncrypt[i] === " ") continue;
-      setTimeout(() => {
-        encryptedText =
-          encryptedText.substr(0, i) +
-          textToEncrypt[i] +
-          encryptedText.substr(i + 1);
-      }, Math.floor(Math.random() * 1000));
+      setTimeout(
+        () => {
+          encryptedText =
+            encryptedText.substr(0, i) +
+            textToEncrypt[i] +
+            encryptedText.substr(i + 1);
+        },
+        Math.floor(Math.random() * 1000),
+      );
     }
   }
 
