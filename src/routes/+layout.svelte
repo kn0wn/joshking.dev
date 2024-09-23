@@ -2,8 +2,8 @@
   import "../app.css";
 </script>
 
-<div class="w-screen">
-  <div class="container mx-auto p-8">
+<div class="w-screen py-8">
+  <div class="container mx-auto max-w-screen-md">
     <slot />
   </div>
 </div>

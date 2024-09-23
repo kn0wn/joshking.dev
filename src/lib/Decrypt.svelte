@@ -1,42 +1,43 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
-  export let tag = "p";
+
+  export let tag: keyof HTMLElementTagNameMap = "p";
   export let classes = "";
 
-  let slot;
+  let slot: HTMLElement;
   let textToEncrypt = "";
   let encryptedText = "";
 
-  /**
-   * Take the textToEncrypt and encrypt it using random characters
-   * but leaving the space
-   */
-  function decryptText() {
-    for (let i = 0; i < textToEncrypt.length; i++) {
-      if (textToEncrypt[i] === " ") {
-        encryptedText += " ";
-        continue;
-      }
-      encryptedText += String.fromCharCode(Math.floor(Math.random() * 94) + 32);
-    }
+  const CHAR_CODE_START = 32;
+  const CHAR_CODE_RANGE = 94;
+  const MAX_DELAY = 1000;
 
-    for (let i = 0; i < textToEncrypt.length; i++) {
-      if (textToEncrypt[i] === " ") continue;
-      setTimeout(
-        () => {
-          encryptedText =
-            encryptedText.substr(0, i) +
-            textToEncrypt[i] +
-            encryptedText.substr(i + 1);
-        },
-        Math.floor(Math.random() * 1000),
-      );
-    }
+  function getRandomChar(): string {
+    return String.fromCharCode(
+      Math.floor(Math.random() * CHAR_CODE_RANGE) + CHAR_CODE_START,
+    );
+  }
+
+  function decryptText(): void {
+    encryptedText = textToEncrypt
+      .split("")
+      .map((char) => (char === " " ? " " : getRandomChar()))
+      .join("");
+
+    textToEncrypt.split("").forEach((char, index) => {
+      if (char === " ") return;
+      setTimeout(() => {
+        encryptedText =
+          encryptedText.substring(0, index) +
+          char +
+          encryptedText.substring(index + 1);
+      }, Math.random() * MAX_DELAY);
+    });
   }
 
   onMount(() => {
     if (!slot) return;
-    textToEncrypt = slot.textContent.trim();
+    textToEncrypt = slot.textContent?.trim() ?? "";
     decryptText();
   });
 </script>

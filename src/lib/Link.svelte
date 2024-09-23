@@ -1,12 +1,12 @@
-<script>
-  export let href = "";
+<script lang="ts">
+  export let href: string = "";
 </script>
 
 <a
   {href}
   target="_blank"
   rel="noreferrer"
-  class="inline-flex items-center gap-x-1 bg-blue-500/10 px-1 text-blue-500 transition-colors hover:bg-blue-500/25 hover:text-blue-800"
+  class="inline-flex items-center gap-x-1 rounded-sm bg-blue-500/10 px-1.5 text-blue-500 transition-colors hover:bg-blue-500/25 hover:text-blue-800"
 >
   <div>
     <slot />
