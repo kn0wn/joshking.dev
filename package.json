@@ -1,30 +1,21 @@
 {
-  "name": "joshking.dev",
-  "version": "0.0.1",
+  "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-kit sync && svelte-check",
-    "check:watch": "svelte-kit sync && svelte-check --watch",
-    "format": "prettier --write '{public,src}/**/*.{css,html,js,svelte}'",
-    "lint": "eslint --fix --quiet src --ext .js,.svelte"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
   "devDependencies": {
-    "@biomejs/biome": "1.9.2",
-    "@sveltejs/adapter-netlify": "^4.3.4",
-    "@sveltejs/kit": "^2.5.28",
-    "@sveltejs/vite-plugin-svelte": "^3.1.2",
-    "@tsconfig/svelte": "^5.0.4",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "svelte": "^4.2.19",
-    "svelte-check": "^4.0.2",
-    "svelte-preprocess": "^6.0.2",
-    "tailwindcss": "^3.4.12",
-    "typescript": "^5.6.2",
-    "vite": "^5.4.7"
-  },
-  "type": "module"
+    "@nuxt/content": "^2.13.2",
+    "@nuxt/fonts": "^0.9.1",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "nuxt": "^3.13.2",
+    "vue": "latest",
+    "vue-router": "latest"
+  }
 }
