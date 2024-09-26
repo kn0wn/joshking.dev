@@ -1,51 +1,31 @@
 ---
-title: "Ambient Computing"
-description: "meta description of the page"
+title: Technology that fades into the background
+description: With the increase of on-device processing speeds for AI, something that becomes more attainable is the idea of "Ambient Computing".
+published: 2024-09-26
+edited: 2024-09-26
+draft: false
 ---
 
-# The Rise of Ambient Computing: A Seamless AI-Driven Future
+# What is Ambient Computing?
 
-Ambient computing, the concept of AI seamlessly integrated into our lives without the need for trigger words, is poised for significant growth. As AI and IoT technologies advance, we're moving towards a world where computing becomes invisible yet omnipresent.
+#### Technology that fades into the background
 
-## Current State and Future Potential
+Imagine walking into a room, the lights adjust perfectly to your mood and matching music starts to play without a word spoken. This isn't only in Sci-Fi films; it's the concept of ambient computing.
 
-### Success Stories
+With the rapid advancement of on-device processing speeds for AI, the idea of "ambient computing" is moving from a future vision to an attainable present. It's a glimpse into a future where technology seamlessly integrates into our environment, responding to our needs without explicit commands.
 
-- **GitHub Copilot**: A prime example of ambient computing in software development, enhancing programmer productivity without explicit commands.
+Ambient computing represents a shift in how we interact with technology. Unlike traditional computing, which requires direct user input, ambient computing aims to create an ecosystem where devices anticipate and respond to our needs based on environmental cues.
 
-### Emerging Technologies
+Most of us have already experienced a form of it, albiet in a very limited form, with the IoT (Internet of Things) such as Amazon's 'Echo' and Google's 'Home' assistant. However, they require a trigger word, which creates a barrier, and cloud processing to react to the command.
 
-- **MediaTek**: Showcasing next-gen satellite broadband and 6G ambient computing demonstrations, signaling rapid progress in the field.
-- **Advancements**: AI, 5G networks, and edge computing are pushing the boundaries of ambient computing capabilities.
+The reliance on cloud processing for these IoT devices presents two significant challenges. Firstly, it raises privacy concerns as personal data is being sent to remote servers. Secondly, the latency involved in sending and receiving data creates friction in the experience, removing the immediacy that ambient computing needs to feel seamless.
 
-## Overcoming Barriers
+However, the increase in on-device processing capabilites is paving the way for more sophisticated ambient computing experiences. Apple's latest M series chips, for instance, are increasingly focused on efficient, local AI processing.
 
-### Processing Power and Cost
+As Hector Ouilhet puts it, "Tepid technology, human warmth." He elaborates, "The technology needs to be tepid. That means neither hot nor cold, just room temperature. Think of a swimming pool that you step into and completely forget you're even in water because it's perfectly in sync with your body temperature."
 
-- Current limitations in processing speeds and costs are being addressed by new AI models, gradually closing the performance gap.
+**The idea of ambient computing is to enrich our lives without it getting in the way.**
 
-### Privacy Concerns
+We're already seeing glimpses of this. Sensors that recognize you walking into a room and having the temperature dynamically adjusted to your liking, or your fridge automatically ordering groceries when supplies run low. These are not just conveniences; they represent a shift in how technology is interacting with our environment.
 
-- Remain a significant hurdle for widespread adoption.
-- **Solution**: Transparency in data processing and storage will be crucial.
-
-### On-Device Processing
-
-- The development of private cloud or on-device processing for AI computing may alleviate privacy issues and enable more seamless interactions.
-
-## Practical Applications
-
-- Automatic correction of incorrect quotes
-- Real-time calculations without explicit requests
-- Seamless date and event reminders
-
-## Prediction
-
-As AI processing capabilities continue to improve and become more energy-efficient, ambient computing will likely become more viable and ubiquitous. We can expect:
-
-1. **Invisible Integration**: AI and IoT devices operating quietly in the background, automating and enhancing daily life.
-2. **Removal of Trigger Words**: As privacy concerns are addressed and on-device processing becomes more powerful, the need for "wake words" may disappear.
-3. **Enhanced User Experience**: A new era of seamless human-computer interaction, where technology anticipates and fulfills needs without explicit commands.
-4. **Widespread Adoption**: As the technology matures and becomes more accessible, ambient computing will likely expand beyond niche applications to become a standard feature in homes, workplaces, and public spaces.
-
-The future of ambient computing holds the promise of a world where technology enhances our lives without demanding our constant attention, creating a more intuitive and efficient relationship between humans and machines.
+It's interesting to see that the future of technology is becoming more hidden.
