@@ -8,3 +8,14 @@
     </div>
   </div>
 </template>
+
+<style lang="postcss" scoped>
+.page-enter-active,
+.page-leave-active {
+  @apply transition-opacity duration-300;
+}
+.page-enter-from,
+.page-leave-to {
+  @apply opacity-0 blur-sm;
+}
+</style>

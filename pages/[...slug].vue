@@ -1,9 +1,14 @@
-<template>
-  <div class="px-4 mb-2">
-    <KLink href="/" :external="false">Home</KLink>
-  </div>
+<script setup></script>
 
-  <main class="prose max-w-none px-4">
-    <ContentDoc />
+<template>
+  <main class="prose max-w-none p-4 font-sans">
+    <ContentDoc v-slot="{ doc }">
+      <article>
+        <h1>{{ doc.title }}</h1>
+        <ContentRenderer :value="doc" />
+      </article>
+    </ContentDoc>
   </main>
 </template>
+
+<style scoped></style>

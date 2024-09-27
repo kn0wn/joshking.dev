@@ -16,12 +16,12 @@ function formatDate(date: string) {
         v-for="blog in posts"
         :key="blog._path"
         :to="blog._path"
-        class="rounded-sm items-center space-x-2 bg-grey/10 px-1 hover:bg-blue-500/10 hover:text-blue-500 transition-colors inline-flex w-full group"
+        class="rounded-sm items-start py-1 sm:items-center space-x-2 bg-grey/10 px-1 hover:bg-blue-500/10 hover:text-blue-500 transition-colors inline-flex w-full"
       >
         <p class="text-xs text-blue-500 shrink-0">
           {{ formatDate(blog.published) }}
         </p>
-        <KDecrypt tag="p">{{ blog.title }}</KDecrypt>
+        <KDecrypt tag="h3" classes="_memoir-title">{{ blog.title }}</KDecrypt>
 
         <div class="flex items-center flex-grow justify-end">
           <svg
@@ -50,3 +50,5 @@ function formatDate(date: string) {
     </p>
   </div>
 </template>
+
+<style lang="postcss" scoped></style>

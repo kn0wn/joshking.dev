@@ -18,6 +18,7 @@ export default {
       },
     },
     fontFamily: {
+      sans: ["Space Grotesk", "sans-serif"],
       mono: ["Berkeley Mono", "monospace"],
     },
     extend: {},

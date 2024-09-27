@@ -7,6 +7,10 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/fonts",
     "@vueuse/nuxt",
+    "@nuxt/image",
   ],
   components: true,
+  app: {
+    pageTransition: { name: "fade", mode: "out-in" },
+  },
 });

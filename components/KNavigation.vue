@@ -40,8 +40,13 @@ onMounted(() => {
         <h1 class="text-xl">josh king</h1>
       </div>
     </div>
-    <div>
-      <p class="text-xl tabular-nums">{{ time }}</p>
-    </div>
+    <ClientOnly>
+      <div class="flex items-center justify-between">
+        <p class="text-xl tabular-nums">{{ time }}</p>
+        <div v-if="!$route.path.match(/^\/$/)">
+          <KLink href="/" :external="false">Home</KLink>
+        </div>
+      </div>
+    </ClientOnly>
   </div>
 </template>
