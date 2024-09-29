@@ -4,7 +4,7 @@ const currentArticle = await queryContent(`${router.params.slug}`).findOne();
 const { formatDate } = useFormatDate();
 
 definePageMeta({
-  title: `${currentArticle.title} | joshking.dev`,
+  title: `${currentArticle?.title} | joshking.dev`,
 });
 
 defineOgImageComponent("Article", {
