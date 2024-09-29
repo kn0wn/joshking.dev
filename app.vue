@@ -1,10 +1,13 @@
-<script setup></script>
+<script setup>
+import { SpeedInsights } from "@vercel/speed-insights/nuxt";
+</script>
 
 <template>
   <div class="w-screen py-8 font-mono selection:bg-blue-500/50">
     <div class="container mx-auto max-w-screen-md">
       <KNavigation />
       <NuxtPage />
+      <SpeedInsights />
     </div>
   </div>
 </template>

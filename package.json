@@ -23,5 +23,8 @@
     "nuxt-fathom": "^0.0.2",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.12"
   }
 }
