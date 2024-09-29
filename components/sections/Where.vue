@@ -11,12 +11,18 @@ const work: WorkItem[] = [
     company: "&above",
     role: "Technical Co-founder",
     website: "//andabove.com",
-    timeline: "2019 - Present",
+    timeline: "2023 - Present",
+  },
+  {
+    company: "RCCO",
+    role: "CTO",
+    website: "//rcco.uk",
+    timeline: "2019 - 2023",
   },
   {
     company: "Google",
-    role: "Internal product development",
-    website: "//blog.google/products/marketingplatform/360/",
+    role: "Internal product development (Contractor)",
+    website: "//www.thinkwithgoogle.com/",
     timeline: "2019 - Present",
   },
 ];
