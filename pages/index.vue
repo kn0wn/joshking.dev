@@ -25,6 +25,10 @@ onMounted(() => {
   loadMemoir.start();
 });
 
+definePageMeta({
+  title: "joshking.dev",
+});
+
 defineOgImageComponent("Default", {
   title: "joshking.dev",
   description: "Partnering with founders to create products of the future.",

@@ -18,6 +18,8 @@ export default defineNuxtConfig({
   site: {
     url: "https://joshking.dev",
     name: "Josh King",
+    description: "Partnering with founders to create products of the future.",
+    defaultLocale: "en",
   },
   sitemap: {
     strictNuxtContentPaths: true,
