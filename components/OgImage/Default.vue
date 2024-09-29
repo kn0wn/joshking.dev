@@ -11,7 +11,7 @@ withDefaults(
 
 <template>
   <div
-    class="h-full w-full flex items-start justify-start border-solid border-blue-500 border-[12px] rounded-3xl"
+    class="h-full w-full flex items-start justify-start border-solid bg-[#ffffff] border-blue-500 border-[12px] rounded-3xl"
   >
     <div class="flex items-start justify-start h-full">
       <div class="flex flex-col justify-between w-full h-full">
