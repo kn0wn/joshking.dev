@@ -1,11 +1,11 @@
 <script setup lang="ts">
-defineProps<{
-  posts: any[];
-}>();
+const { data: allPosts } = await useAsyncData("posts", () =>
+  queryContent().find()
+);
 
-function formatDate(date: string) {
-  return new Date(date).toISOString().split("T")[0];
-}
+const posts = allPosts.value?.filter((post) => post.draft === false) || [];
+
+const { formatDate } = useFormatDate();
 </script>
 
 <template>
@@ -16,7 +16,7 @@ function formatDate(date: string) {
         v-for="blog in posts"
         :key="blog._path"
         :to="blog._path"
-        class="rounded-sm items-start py-1 sm:items-center space-x-2 bg-grey/10 px-1 hover:bg-blue-500/10 hover:text-blue-500 transition-colors inline-flex w-full"
+        class="rounded-sm items-start py-1 sm:items-center space-x-2 bg-grey/10 pl-2 pr-3 hover:bg-blue-500/10 hover:text-blue-500 transition-colors inline-flex w-full"
       >
         <p class="text-xs text-blue-500 shrink-0">
           {{ formatDate(blog.published) }}
@@ -40,13 +40,16 @@ function formatDate(date: string) {
     </div>
 
     <p class="text-xs text-grey">
-      Built with <a href="//nuxt.com" class="text-blue-500">Nuxt</a>,
-      <a href="//vuejs.org" class="text-blue-500">Vue</a> &
+      Built with
+      <a target="_blank" href="//nuxt.com" class="text-blue-500">Nuxt</a>. Font
+
       <a
+        target="_blank"
         href="//berkeleygraphics.com/typefaces/berkeley-mono/"
         class="text-blue-500"
         >BerkeleyMono</a
-      >.
+      >. Deployed on
+      <a target="_blank" href="//vercel.com" class="text-blue-500">Vercel</a>.
     </p>
   </div>
 </template>

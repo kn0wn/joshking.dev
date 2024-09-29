@@ -4,9 +4,20 @@ interface ContactItem {
   url: string;
 }
 
-defineProps<{
-  contact: ContactItem[];
-}>();
+const contact: ContactItem[] = [
+  {
+    name: "Github",
+    url: "//github.com/kn0wn",
+  },
+  {
+    name: "𝕏",
+    url: "//x.com/josh_fyi",
+  },
+  {
+    name: "LinkedIn",
+    url: "//linkedin.com/in/josh-king-connect",
+  },
+];
 </script>
 
 <template>

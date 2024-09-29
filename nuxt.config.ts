@@ -8,9 +8,22 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@vueuse/nuxt",
     "@nuxt/image",
+    "nuxt-fathom",
+    "@nuxtjs/seo",
   ],
   components: true,
   app: {
     pageTransition: { name: "fade", mode: "out-in" },
+  },
+  site: {
+    url: "https://joshking.dev",
+    name: "Josh King",
+  },
+  sitemap: {
+    strictNuxtContentPaths: true,
+    urls: ["/ambient-computing"],
+  },
+  fathom: {
+    siteId: "NXIDHQVO",
   },
 });

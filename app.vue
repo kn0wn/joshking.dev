@@ -9,13 +9,14 @@
   </div>
 </template>
 
-<style lang="postcss" scoped>
-.page-enter-active,
-.page-leave-active {
-  @apply transition-opacity duration-300;
+<style lang="postcss">
+.fade-enter-active,
+.fade-leave-active {
+  @apply transition-all duration-500 ease-in-out;
 }
-.page-enter-from,
-.page-leave-to {
-  @apply opacity-0 blur-sm;
+
+.fade-enter-from,
+.fade-leave-to {
+  @apply opacity-0;
 }
 </style>

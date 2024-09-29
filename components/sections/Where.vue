@@ -6,9 +6,20 @@ interface WorkItem {
   timeline: string;
 }
 
-defineProps<{
-  work: WorkItem[];
-}>();
+const work: WorkItem[] = [
+  {
+    company: "&above",
+    role: "Technical Co-founder",
+    website: "//andabove.com",
+    timeline: "2019 - Present",
+  },
+  {
+    company: "Google",
+    role: "Internal product development",
+    website: "//blog.google/products/marketingplatform/360/",
+    timeline: "2019 - Present",
+  },
+];
 </script>
 
 <template>
