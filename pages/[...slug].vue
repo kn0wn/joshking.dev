@@ -3,10 +3,6 @@ const router = useRoute();
 const currentArticle = await queryContent(`${router.params.slug}`).findOne();
 const { formatDate } = useFormatDate();
 
-definePageMeta({
-  title: `${currentArticle?.title} | joshking.dev`,
-});
-
 defineOgImageComponent("Article", {
   title: currentArticle.title,
   description: "Partnering with founders to create products of the future.",
