@@ -50,6 +50,13 @@ const { formatDate } = useFormatDate();
         >BerkeleyMono</a
       >. Deployed on
       <a target="_blank" href="//vercel.com" class="text-blue-500">Vercel</a>.
+      Latest commit
+      <a
+        target="_blank"
+        :href="`https://github.com/kn0wndev/joshking.dev/commit/${$config.public.VERCEL_GIT_COMMIT_SHA}`"
+        class="text-blue-500"
+        >{{ $config.public.VERCEL_GIT_COMMIT_SHA }}</a
+      >.
     </p>
   </div>
 </template>
