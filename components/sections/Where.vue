@@ -15,7 +15,7 @@ const work: WorkItem[] = [
   },
   {
     company: "RCCO",
-    role: "CTO",
+    role: "Chief Technology Officer",
     website: "//rcco.uk",
     timeline: "2019 - 2023",
   },
