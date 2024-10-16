@@ -10,11 +10,11 @@ defineOgImageComponent("Article", {
 </script>
 
 <template>
-  <main class="prose max-w-none p-4 font-sans">
+  <main class="prose max-w-none p-4 font-sans leading-snug">
     <ContentDoc v-slot="{ doc }">
       <article>
-        <KDecrypt tag="h1">{{ doc.title }}</KDecrypt>
-        <ContentRenderer :value="doc" />
+        <KDecrypt tag="h1" class="font-mono">{{ doc.title }}</KDecrypt>
+        <ContentRenderer class="text-base" :value="doc" />
       </article>
     </ContentDoc>
     <div class="grid grid-cols-2 not-prose">

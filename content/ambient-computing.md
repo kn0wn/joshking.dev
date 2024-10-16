@@ -6,8 +6,6 @@ edited: 2024-09-29
 draft: false
 ---
 
-![Image of Github Copilot autocompleting the article header](/content/ambient-computing/ambient-computing.gif)
-
 You walk into a room, the lights adjust perfectly to your mood and matching music starts to play without a word spoken. This isn't only in Sci-Fi films; it's the concept of ambient computing.
 
 With the rapid advancement of on-device processing speeds for AI, the idea of "ambient computing" is moving from a future vision to an attainable present. It's a glimpse into a future where technology seamlessly integrates into our environment, responding to our needs without explicit commands.
