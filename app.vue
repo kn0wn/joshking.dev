@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/nuxt";
     <div class="container mx-auto max-w-screen-md">
       <KNavigation />
       <NuxtPage />
+      <KAudio src="content/ambient-computing/ambient-computing.mp3" />
       <SpeedInsights />
     </div>
   </div>
