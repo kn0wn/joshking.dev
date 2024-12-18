@@ -6,7 +6,7 @@ interface ContactItem {
 
 const contact: ContactItem[] = [
   {
-    name: "Github",
+    name: "GitHub",
     url: "//github.com/kn0wn",
   },
   {
