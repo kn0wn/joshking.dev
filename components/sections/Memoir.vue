@@ -1,11 +1,27 @@
 <script setup lang="ts">
+import type { ParsedContent } from "@nuxt/content";
+
+interface Post extends ParsedContent {
+  published: string;
+  edited: string;
+  title: string;
+  description: string;
+  draft: boolean;
+}
+
 const { data: allPosts } = await useAsyncData("posts", () =>
-  queryContent().find()
+  queryContent<Post>().find()
 );
 
 const posts = allPosts.value?.filter((post) => post.draft === false) || [];
 
-const { formatDate } = useFormatDate();
+const { format, parse } = useDateUtils();
+
+const sortedPosts = computed<Post[]>(() => {
+  return posts.toSorted((a, b) => {
+    return parse(b.published).getTime() - parse(a.published).getTime();
+  });
+});
 </script>
 
 <template>
@@ -13,13 +29,13 @@ const { formatDate } = useFormatDate();
     <KDecrypt tag="p" classes="text-sm text-grey">Memoir.</KDecrypt>
     <div class="space-y-2">
       <NuxtLink
-        v-for="blog in posts"
+        v-for="blog in sortedPosts"
         :key="blog._path"
         :to="blog._path"
         class="rounded-sm items-start py-1 sm:items-center space-x-2 bg-grey/10 pl-2 pr-3 hover:bg-blue-500/10 hover:text-blue-500 transition-colors inline-flex w-full"
       >
         <p class="text-xs text-blue-500 shrink-0">
-          {{ formatDate(blog.published) }}
+          {{ format(blog.published) }}
         </p>
         <KDecrypt tag="h3" classes="_memoir-title">{{ blog.title }}</KDecrypt>
 
