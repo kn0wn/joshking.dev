@@ -1,24 +1,19 @@
 <script setup lang="ts">
-withDefaults(
-  defineProps<{
-    title?: string;
-  }>(),
-  {
-    title: "title",
-  }
-);
+defineProps<{
+  title?: string;
+}>();
 </script>
 
 <template>
   <div
-    class="h-full w-full flex items-start justify-start border-solid bg-[#ffffff] border-blue-500 border-[12px] rounded-3xl"
+    class="relative h-full w-full flex items-start justify-start border-solid bg-[#ffffff] border-blue-500 border-[12px] rounded-3xl"
   >
     <div class="flex items-start justify-start h-full">
       <div class="flex flex-col justify-between w-full h-full">
         <div class="p-20 flex flex-col">
-          <div class="">
+          <div>
             <h1
-              class="text-6xl text-blue-500 bg-blue-500/10 rounded-sm px-4 py-2"
+              class="text-6xl text-blue-500 bg-blue-500/10 rounded-md px-4 py-2"
             >
               Product Interface Engineer
             </h1>

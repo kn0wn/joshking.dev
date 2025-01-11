@@ -1,7 +1,7 @@
 <script setup>
 const router = useRoute();
 const currentArticle = await queryContent(`${router.params.slug}`).findOne();
-const { formatDate } = useFormatDate();
+const { format } = useDateUtils();
 
 defineOgImageComponent("Article", {
   title: currentArticle.title,
@@ -21,13 +21,13 @@ defineOgImageComponent("Article", {
       <div class="">
         <p class="text-xs text-grey">Published</p>
         <p class="text-blue-500 tabular-nums">
-          {{ formatDate(currentArticle.published) }}
+          {{ format(currentArticle.published) }}
         </p>
       </div>
       <div class="">
         <p class="text-xs text-grey">Edited</p>
         <p class="text-blue-500 tabular-nums">
-          {{ formatDate(currentArticle.edited) }}
+          {{ format(currentArticle.edited) }}
         </p>
       </div>
     </div>

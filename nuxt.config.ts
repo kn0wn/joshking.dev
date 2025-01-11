@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   },
   sitemap: {
     strictNuxtContentPaths: true,
-    urls: ["/ambient-computing"],
+    urls: ["/ambient-computing", "predictions-2025"],
   },
   fathom: {
     siteId: "NXIDHQVO",
