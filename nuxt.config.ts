@@ -13,9 +13,18 @@ export default defineNuxtConfig({
   ],
   components: true,
   content: {
-    highlight: {
-      theme: "github-dark",
+    experimental: { nativeSqlite: true },
+
+    build: {
+      markdown: {
+        highlight: {
+          theme: "github-dark",
+        },
+      },
     },
+    // highlight: {
+    //   theme: "github-dark",
+    // },
   },
   app: {
     pageTransition: { name: "fade", mode: "out-in" },

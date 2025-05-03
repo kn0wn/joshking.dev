@@ -1,3 +1,5 @@
+ignoredBuiltDependencies:
+  - better-sqlite3
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@vercel/speed-insights'
