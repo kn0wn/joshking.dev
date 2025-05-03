@@ -1,7 +1,6 @@
 {
   "name": "joshking.dev",
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
