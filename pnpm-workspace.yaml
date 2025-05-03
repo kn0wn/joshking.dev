@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@vercel/speed-insights'
+  - esbuild
+  - sharp
+  - vue-demi
