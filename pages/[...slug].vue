@@ -2,24 +2,36 @@
 const route = useRoute();
 const { format } = useDateUtils();
 
-// Get a random article
-const allArticles = await queryCollection("content").all();
-const randomArticle = allArticles
-  .filter((article) => article.path !== route.path)
-  .sort(() => Math.random() - 0.5)[0];
+// Get a random article with caching
+const { data: allArticles } = await useAsyncData("all-articles", () =>
+  queryCollection("content").all()
+);
 
-// defineOgImageComponent("Article", {
-//   title: currentArticle.title,
-//   description: "Partnering with founders to create products of the future.",
-// });
+const randomArticle = computed(() => {
+  if (!allArticles.value) return null;
+  return allArticles.value
+    .filter((article) => article.path !== route.path)
+    .sort(() => Math.random() - 0.5)[0];
+});
 
-const { data: page } = await useAsyncData(route.path, () => {
-  return queryCollection("content").path(route.path).first();
+// Get current page with caching
+const { data: page } = await useAsyncData(route.path, () =>
+  queryCollection("content").path(route.path).first()
+);
+
+// Set up OpenGraph image
+defineOgImageComponent("OgImage", {
+  title: page.value?.title || "Josh King",
+  description:
+    page.value?.description ||
+    "Partnering with founders to create products of the future.",
 });
 </script>
 
 <template>
   <main class="max-w-none p-4 font-sans leading-snug">
+    <!-- <ContentSearch class="mb-8" /> -->
+
     <ul class="flex flex-wrap gap-2 not-prose">
       <li v-for="tag in page.tags" :key="tag">
         <KDecrypt tag="span" class="text-xs text-blue-600">{{ tag }}</KDecrypt>

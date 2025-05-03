@@ -11,10 +11,13 @@ export default defineNuxtConfig({
     "nuxt-fathom",
     "@nuxtjs/seo",
   ],
-  components: true,
+  components: {
+    dirs: ["~/components", "~/components/content"],
+  },
   content: {
-    experimental: { nativeSqlite: true },
-
+    experimental: {
+      nativeSqlite: true,
+    },
     build: {
       markdown: {
         highlight: {
@@ -22,9 +25,6 @@ export default defineNuxtConfig({
         },
       },
     },
-    // highlight: {
-    //   theme: "github-dark",
-    // },
   },
   app: {
     pageTransition: { name: "fade", mode: "out-in" },
