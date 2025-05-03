@@ -26,5 +26,8 @@
   },
   "dependencies": {
     "@vercel/speed-insights": "^1.2.0"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
