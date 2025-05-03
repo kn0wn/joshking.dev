@@ -28,7 +28,7 @@ export default defineNuxtConfig({
   },
   sitemap: {
     strictNuxtContentPaths: true,
-    urls: ["/ambient-computing", "predictions-2025"],
+    urls: ["/ambient-computing", "predictions-2025", "raycast-train-times"],
   },
   fathom: {
     siteId: "NXIDHQVO",

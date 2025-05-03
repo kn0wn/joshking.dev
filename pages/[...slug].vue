@@ -29,7 +29,9 @@ defineOgImageComponent("Article", {
         <KDecrypt tag="h1" class="font-mono text-3xl mb-4">{{
           doc.title
         }}</KDecrypt>
-        <ContentRenderer class="text-base" :value="doc" />
+        <Transition name="fade-delay" appear>
+          <ContentRenderer class="text-base" :value="doc" />
+        </Transition>
       </article>
     </ContentDoc>
     <div class="grid grid-cols-2 not-prose">
@@ -63,4 +65,15 @@ defineOgImageComponent("Article", {
   </main>
 </template>
 
-<style scoped></style>
+<style>
+.fade-delay-enter-active,
+.fade-delay-leave-active {
+  transition: opacity 0.5s ease-in-out;
+  transition-delay: 0.5s;
+}
+
+.fade-delay-enter-from,
+.fade-delay-leave-to {
+  opacity: 0;
+}
+</style>
