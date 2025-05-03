@@ -33,4 +33,11 @@ export default defineNuxtConfig({
   fathom: {
     siteId: "NXIDHQVO",
   },
+  runtimeConfig: {
+    public: {
+      x: "https://x.com/josh_fyi",
+      linkedin: "https://www.linkedin.com/in/josh-king-connect",
+      github: "https://github.com/kn0wn",
+    },
+  },
 });

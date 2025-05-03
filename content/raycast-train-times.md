@@ -20,7 +20,7 @@ I've been a long time user of Raycast and have built a couple of personal extens
 
 The idea for the extension is fairly simple. Find an API endpoint that can be called to get train times for a station then display the results in Raycast.
 
-In the UK we have National Rail which is funded by the government and is used to show the train times on all the boards within the stations so I had to setup an account to get access to the information. The site to get access is [https://raildata.org.uk/](https://raildata.org.uk/). They have an account approval process but it was fairly quick to get approved.
+In the UK we have National Rail which is funded by the government and is used to show the train times on all the boards within the stations so I had to setup an account to get access to the information. The site to get access is [raildata.org.uk](https://raildata.org.uk/). They have an account approval process but it was fairly quick to get approved.
 
 I then looked through their 'marketplace' of API's to find one that could give me the train times for a station, I can't lie it's pretty confusing to navigate as there's a bunch of API's which serve very similar purposes.
 
@@ -121,4 +121,4 @@ I'm happy with how the extension turned out and it's something I've been using d
 
 I would like for it to refetch automatically but Raycast only lets this happen if you use the 'no-view' option which means there wouldn't be a longer breakdown which is useful.
 
-If you think this extension would be useful for you let me know via 𝕏 and I'll clean up the code and add it to the raycast extension directory.
+If you think this extension would be useful for you let me know via [𝕏](https://x.com/josh_fyi) and I'll clean up the code and add it to the raycast extension directory.

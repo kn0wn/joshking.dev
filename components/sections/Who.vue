@@ -4,18 +4,20 @@ interface ContactItem {
   url: string;
 }
 
+const { x, linkedin, github } = useRuntimeConfig().public;
+
 const contact: ContactItem[] = [
   {
     name: "GitHub",
-    url: "//github.com/kn0wn",
+    url: github,
   },
   {
     name: "𝕏",
-    url: "//x.com/josh_fyi",
+    url: x,
   },
   {
     name: "LinkedIn",
-    url: "//linkedin.com/in/josh-king-connect",
+    url: linkedin,
   },
 ];
 </script>

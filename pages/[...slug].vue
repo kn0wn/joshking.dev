@@ -50,7 +50,7 @@ defineOgImageComponent("Article", {
     <!-- Random Article Block -->
     <div v-if="randomArticle" class="mt-12 border-t border-gray-200 pt-8">
       <p class="text-xs text-grey mb-2">You Might Also Like</p>
-      <NuxtLink :to="randomArticle._path" class="group">
+      <NuxtLink :to="randomArticle._path" class="group bg-blue-500">
         <KDecrypt
           tag="h2"
           class="font-mono text-xl group-hover:text-blue-500 transition-colors"
