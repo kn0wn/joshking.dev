@@ -25,8 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps } from "vue";
-
 const props = defineProps<{
   code: string;
   language: string | null;
