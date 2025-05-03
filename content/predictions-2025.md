@@ -4,6 +4,8 @@ description: A look at what I think will happen in 2025.
 published: 2025-01-11
 edited: 2025-01-11
 draft: false
+tags:
+  - thoughts
 ---
 
 I feel I always have my ear to the ground for any new tech that's coming out, and those who know me will know that I am quite passionate about testing things and looking at how I can adopt them into my workflow/life.

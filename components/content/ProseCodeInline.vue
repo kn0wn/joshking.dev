@@ -2,7 +2,7 @@
 
 <template>
   <code
-    class="bg-[#23272f] text-[#ffffff] text-sm px-2 rounded-sm border border-[#2d323c]"
+    class="bg-[#23272f] text-blue-200 text-sm px-2 rounded-sm border border-[#2d323c]"
   >
     <slot />
   </code>

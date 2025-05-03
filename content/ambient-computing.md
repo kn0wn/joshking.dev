@@ -4,6 +4,8 @@ description: Ambient computing is becoming more attainable as we continue to foc
 published: 2024-09-26
 edited: 2024-09-29
 draft: false
+tags:
+  - thoughts
 ---
 
 You walk into a room, the lights adjust perfectly to your mood and matching music starts to play without a word spoken. This isn't only in Sci-Fi films; it's the concept of ambient computing.

@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block w-full">
+  <div class="inline-block w-full bg-[#23272f] rounded-md mb-4">
     <div
       class="flex justify-between items-center bg-[#23272f] text-[#ffffff] text-sm px-4 py-2 rounded-t-md border-b border-[#2d323c]"
     >
@@ -16,7 +16,11 @@
         </button>
       </span>
     </div>
-    <pre :class="($props.class || '') + ' mt-0 rounded-t-none'"><slot /></pre>
+    <pre
+      :class="
+        ($props.class || '') + 'mt-0 rounded-t-none px-4 py-2 overflow-x-auto '
+      "
+    ><slot /></pre>
   </div>
 </template>
 

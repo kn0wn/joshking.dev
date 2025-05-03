@@ -4,11 +4,13 @@ description: Playing around with the raycast extension API to get the next train
 published: 2025-05-03
 edited: 2025-05-03
 draft: false
+tags:
+  - tutorial
 ---
 
 ## New Year, New Office
 
-&above moved into our new office last month. There's a bit of an internal joke around how many times we move office as in the last 6 years of the company we've moved almost twice every year. I'm a big fan of moving as I always feels it gives a new lease of life to the team and the culture as you get to explore a new area.
+[&above](https://andabove.com) moved into our new office last month. There's a bit of an internal joke around how many times we move office as in the last 6 years of the company we've moved almost twice every year. I'm a big fan of moving as I always feels it gives a new lease of life to the team and the culture as you get to explore a new area.
 
 The new office is right next to Waterloo train station in London and a lot of the team gets in and out from there. Around the same time I also saw a tweet from [Joe Bell](https://x.com/joebell_) about his new Raycast extension to check train times in Estonia.
 
@@ -72,42 +74,45 @@ export interface Preferences {
 Then to render the results in Raycast it was as simple as using the `useTrainTimes` hook in a `List.Item` component.
 
 ```tsx [components/TrainTimes.tsx]
-  return (
-    <List
-      isLoading={isLoading}
-      navigationTitle="Next Trains"
-      searchBarPlaceholder="Search trains..."
-      throttle
-    >
-      {data?.trainServices?.length ? (
-        <List.Section title="Upcoming Trains">
-          {data.trainServices.map((train: TrainService) => (
-            <List.Item
-              key={train.serviceID}
-              title={`${train.destination[0].locationName} ${train.destination[0].via ? `(${train.destination[0].via})` : ""}`}
-              subtitle={`${train.std} ${train.etd !== "On time" ? `(${train.etd})` : ""}`}
-              accessories={[
-                {
-                  text: train.platform
-                    ? `Platform ${train.platform}`
-                    : "No platform",
-                },
-                { text: train.operator },
-              ]}
-              icon={getStatusIcon(train)}
-            />
-          ))}
-        </List.Section>
-      ) : (
-        <List.EmptyView
-          title="No trains found"
-          description="Try checking your station codes at https://en.wikipedia.org/wiki/UK_railway_stations_%E2%80%93_A or adjusting your time window"
-          icon={Icon.Train}
-        />
-      )}
-    </List>
-  );
-}
+return (
+  <List
+    isLoading={isLoading}
+    navigationTitle="Next Trains"
+    searchBarPlaceholder="Search trains..."
+    throttle
+  >
+    {data?.trainServices?.length ? (
+      <List.Section title="Upcoming Trains">
+        {data.trainServices.map((train: TrainService) => (
+          <List.Item
+            key={train.serviceID}
+            title={`${train.destination[0].locationName} ${
+              train.destination[0].via ? `(${train.destination[0].via})` : ""
+            }`}
+            subtitle={`${train.std} ${
+              train.etd !== "On time" ? `(${train.etd})` : ""
+            }`}
+            accessories={[
+              {
+                text: train.platform
+                  ? `Platform ${train.platform}`
+                  : "No platform",
+              },
+              { text: train.operator },
+            ]}
+            icon={getStatusIcon(train)}
+          />
+        ))}
+      </List.Section>
+    ) : (
+      <List.EmptyView
+        title="No trains found"
+        description="Try checking your station codes at https://en.wikipedia.org/wiki/UK_railway_stations_%E2%80%93_A or adjusting your time window"
+        icon={Icon.Train}
+      />
+    )}
+  </List>
+);
 ```
 
 ## Conclusion
