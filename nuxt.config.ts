@@ -12,6 +12,11 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
   ],
   components: true,
+  content: {
+    highlight: {
+      theme: "github-dark",
+    },
+  },
   app: {
     pageTransition: { name: "fade", mode: "out-in" },
   },
