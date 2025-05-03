@@ -36,7 +36,6 @@ export default defineNuxtConfig({
     defaultLocale: "en",
   },
   sitemap: {
-    strictNuxtContentPaths: true,
     urls: ["/ambient-computing", "predictions-2025", "raycast-train-times"],
   },
   fathom: {
