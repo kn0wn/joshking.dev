@@ -38,7 +38,7 @@ defineOgImageComponent("OgImage", {
       </li>
     </ul>
     <article>
-      <KDecrypt tag="h1" class="font-mono text-3xl mb-4">{{
+      <KDecrypt tag="h1" class="font-sans text-3xl mb-4" style="text-wrap: balance;">{{
         page.title
       }}</KDecrypt>
       <Transition name="fade-delay" appear>
@@ -67,7 +67,7 @@ defineOgImageComponent("OgImage", {
       <NuxtLink :to="randomArticle.path" class="group bg-blue-500">
         <KDecrypt
           tag="h2"
-          class="font-mono text-xl group-hover:text-blue-500 transition-colors"
+          class="font-sans text-xl group-hover:text-blue-500 transition-colors"
         >
           {{ randomArticle.title }}
         </KDecrypt>

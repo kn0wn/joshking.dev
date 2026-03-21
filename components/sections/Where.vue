@@ -32,7 +32,7 @@ const work: WorkItem[] = [
   <div>
     <KDecrypt tag="p" classes="text-sm text-grey mb-2">Where.</KDecrypt>
 
-    <div class="space-y-4">
+    <div class="grid grid-cols-3 gap-4">
       <div v-for="item in work" :key="item.company" class="space-y-1">
         <KLink :href="item.website">
           {{ item.company }}

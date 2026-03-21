@@ -3,10 +3,18 @@ import { SpeedInsights } from "@vercel/speed-insights/nuxt";
 </script>
 
 <template>
-  <div class="w-screen py-8 font-mono selection:bg-blue-500/50">
+  <div class="w-screen py-8 font-sans selection:bg-blue-500/50" style="-webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;">
     <div class="container mx-auto max-w-screen-md">
       <KNavigation />
       <NuxtPage />
+      <footer class="px-4 py-6">
+        <p class="text-xs text-grey">
+          Built with
+          <a target="_blank" href="//nuxt.com" class="text-blue-500">Nuxt</a>.
+          Font <a target="_blank" href="//vercel.com/font" class="text-blue-500">Geist</a>.
+          Deployed on <a target="_blank" href="//vercel.com" class="text-blue-500">Vercel</a>.
+        </p>
+      </footer>
       <SpeedInsights />
     </div>
   </div>

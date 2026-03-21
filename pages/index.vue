@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { useTimeoutFn } from "@vueuse/core";
 
-// Use ref for component visibility
 const whoLoaded = ref(false);
 const whereLoaded = ref(false);
-const memoirLoaded = ref(false);
+const notableLoaded = ref(false);
 
-// Use useTimeoutFn for delayed loading
 const loadWho = useTimeoutFn(() => {
   whoLoaded.value = true;
 }, 300);
@@ -15,14 +13,14 @@ const loadWhere = useTimeoutFn(() => {
   whereLoaded.value = true;
 }, 900);
 
-const loadMemoir = useTimeoutFn(() => {
-  memoirLoaded.value = true;
+const loadNotable = useTimeoutFn(() => {
+  notableLoaded.value = true;
 }, 1500);
 
 onMounted(() => {
   loadWho.start();
   loadWhere.start();
-  loadMemoir.start();
+  loadNotable.start();
 });
 
 definePageMeta({
@@ -37,7 +35,7 @@ defineOgImageComponent("Default", {
 
 <template>
   <div>
-    <div class="px-4 py-2 sm:grid sm:grid-cols-2">
+    <div class="px-4 py-2 grid grid-cols-1 gap-4">
       <Transition name="fade">
         <SectionsWho v-if="whoLoaded" />
       </Transition>
@@ -48,7 +46,7 @@ defineOgImageComponent("Default", {
     </div>
 
     <Transition name="fade">
-      <SectionsMemoir v-if="memoirLoaded" />
+      <SectionsNotableWorks v-if="notableLoaded" />
     </Transition>
   </div>
 </template>

@@ -9,8 +9,8 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const linkClass = computed(() => [
-  "inline-flex items-center gap-x-1 rounded-sm px-1.5 transition-colors",
-  "bg-blue-500/10 text-blue-500 hover:bg-blue-500/25 hover:text-blue-800",
+  "inline-flex items-center gap-x-1 rounded-sm transition-colors",
+  "text-blue-500 hover:text-blue-800",
 ]);
 </script>
 

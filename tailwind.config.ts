@@ -19,8 +19,8 @@ export default {
       },
     },
     fontFamily: {
-      sans: ["Nunito", "sans-serif"],
-      mono: ["Berkeley Mono", "monospace"],
+      sans: ["Geist", "sans-serif"],
+      mono: ["Geist Mono", "monospace"],
     },
     extend: {},
   },
