@@ -35,61 +35,68 @@ const work: WorkItem[] = [
   },
 ];
 
-function countWords(s: string) {
-  return s.trim().split(/\s+/).filter(Boolean).length;
-}
-
 const LABEL = "Where.";
 const wLabel = countWords(LABEL);
 
-// Precompute word counts per item and cumulative offsets
-const itemWordCounts = work.map((item) =>
-  countWords(item.company) + countWords(item.role) + countWords(item.timeline)
-);
-const totalWords = wLabel + itemWordCounts.reduce((a, b) => a + b, 0);
+const stream = useStreamCursor(() => props.startIndex ?? 0);
+const labelStart = stream.next(wLabel);
 
-watch(
-  () => totalWords,
-  (val) => emit("update:wordCount", val),
-  { immediate: true }
+const itemRefs = work.map((item) => ({
+  ...item,
+  companyStart: stream.next(countWords(item.company)),
+  roleStart: stream.next(countWords(item.role)),
+  timelineStart: stream.next(countWords(item.timeline)),
+}));
+
+const items = computed(() =>
+  itemRefs.map((item) => ({
+    company: item.company,
+    role: item.role,
+    website: item.website,
+    timeline: item.timeline,
+    companyStart: item.companyStart.value,
+    roleStart: item.roleStart.value,
+    timelineStart: item.timelineStart.value,
+  }))
 );
+
+watch(stream.total, (val) => emit("update:wordCount", val), {
+  immediate: true,
+});
 
 const { delayMs } = useStreamDelay();
-
-const si = computed(() => props.startIndex ?? 0);
-const sLabel = computed(() => si.value + wLabel);
-
-function itemStartIndex(idx: number) {
-  let offset = 0;
-  for (let i = 0; i < idx; i++) offset += itemWordCounts[i];
-  return sLabel.value + offset;
-}
-
-function roleStart(idx: number) {
-  return itemStartIndex(idx) + countWords(work[idx].company);
-}
-
-function timelineStart(idx: number) {
-  return roleStart(idx) + countWords(work[idx].role);
-}
 </script>
 
 <template>
   <div>
-    <SdText text="Where." tag="p" class="text-sm text-grey mb-2" :start-index="si" />
+    <SdText
+      text="Where."
+      tag="p"
+      class="text-sm text-grey mb-2"
+      :start-index="labelStart"
+    />
 
     <div class="grid grid-cols-3 gap-4">
-      <div v-for="(item, idx) in work" :key="item.company" class="space-y-1">
-        <KLink :href="item.website" :icon-delay="delayMs(roleStart(idx))">
-          <SdText :text="item.company" tag="span" :start-index="itemStartIndex(idx)" />
+      <div v-for="item in items" :key="item.company" class="space-y-1">
+        <KLink :href="item.website" :icon-delay="delayMs(item.roleStart)">
+          <SdText
+            :text="item.company"
+            tag="span"
+            :start-index="item.companyStart"
+          />
         </KLink>
         <div class="space-y-1">
-          <SdText :text="item.role" tag="p" class="text-sm" :start-index="roleStart(idx)" />
+          <SdText
+            :text="item.role"
+            tag="p"
+            class="text-sm"
+            :start-index="item.roleStart"
+          />
           <SdText
             :text="item.timeline"
             tag="p"
             class="text-grey text-xs"
-            :start-index="timelineStart(idx)"
+            :start-index="item.timelineStart"
           />
         </div>
       </div>

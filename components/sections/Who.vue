@@ -20,53 +20,49 @@ const contact: ContactItem[] = [
   { name: "LinkedIn", url: linkedin, icon: "simple-icons:linkedin" },
 ];
 
-function countWords(s: string) {
-  return s.trim().split(/\s+/).filter(Boolean).length;
-}
-
 const LABEL = "Who.";
 const HEADLINE = "Technical architect.";
-const BODY =
-  "Based in London, United Kingdom.";
+const BODY = "Based in London, United Kingdom.";
 
 const wLabel = countWords(LABEL);
 const wHeadline = countWords(HEADLINE);
 const wBody = countWords(BODY);
 const wContacts = contact.length; // one word each
 
-const totalWords = wLabel + wHeadline + wBody + wContacts;
+const stream = useStreamCursor(() => props.startIndex ?? 0);
+const labelStart = stream.next(wLabel);
+const headlineStart = stream.next(wHeadline);
+const bodyStart = stream.next(wBody);
+const contactsStart = stream.next(wContacts);
 
-watch(
-  () => totalWords,
-  (val) => emit("update:wordCount", val),
-  { immediate: true }
-);
+watch(stream.total, (val) => emit("update:wordCount", val), {
+  immediate: true,
+});
 
 const { delayMs } = useStreamDelay();
 
-const si = computed(() => props.startIndex ?? 0);
-const s1 = computed(() => si.value + wLabel);
-const s2 = computed(() => s1.value + wHeadline);
-const s3 = computed(() => s2.value + wBody);
-
-function iconAnimateStyle(wordIndex: number) {
-  const delay = delayMs(wordIndex);
-  return `--sd-animation:sd-slideUp;--sd-duration:150ms;--sd-easing:ease;--sd-delay:${delay}ms`;
+function iconAnimateStyle(idx: number) {
+  return sdStyle({ delay: delayMs(contactsStart.value + idx) });
 }
 </script>
 
 <template>
   <div class="mb-4 sm:mb-0">
-    <SdText text="Who." tag="p" class="text-sm text-grey mb-2" :start-index="si" />
+    <SdText
+      text="Who."
+      tag="p"
+      class="text-sm text-grey mb-2"
+      :start-index="labelStart"
+    />
     <div class="grid grid-cols-2 gap-x-2 gap-y-2">
       <div class="space-y-2 min-w-0">
         <SdText
           :text="HEADLINE"
           tag="h1"
           class="text-blue-500"
-          :start-index="s1"
+          :start-index="headlineStart"
         />
-        <SdText :text="BODY" tag="p" :start-index="s2" />
+        <SdText :text="BODY" tag="p" :start-index="bodyStart" />
       </div>
       <div
         class="flex flex-wrap gap-x-2 gap-y-2 items-end sm:items-start justify-start text-right sm:text-left"
@@ -80,7 +76,7 @@ function iconAnimateStyle(wordIndex: number) {
           <span
             data-sd-animate
             class="inline-flex shrink-0"
-            :style="iconAnimateStyle(s3 + idx)"
+            :style="iconAnimateStyle(idx)"
           >
             <Icon
               :name="item.icon"
@@ -88,7 +84,6 @@ function iconAnimateStyle(wordIndex: number) {
               aria-hidden="true"
             />
           </span>
-          <!-- <SdText :text="item.name" tag="span" :start-index="s3 + idx" /> -->
         </KLink>
       </div>
     </div>

@@ -68,9 +68,12 @@ watch(
 
 function spanStyle(index: number): string {
   const delay = delayMs(index, props.stagger);
-  let s = `--sd-animation:sd-${props.animation};--sd-duration:${props.duration}ms;--sd-easing:${props.easing}`;
-  if (delay > 0) s += `;--sd-delay:${delay}ms`;
-  return s;
+  return sdStyle({
+    animation: props.animation,
+    duration: props.duration,
+    easing: props.easing,
+    ...(delay > 0 ? { delay } : {}),
+  });
 }
 </script>
 

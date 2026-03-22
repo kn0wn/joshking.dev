@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const iconStyle = computed(() => {
   if (props.iconDelay === undefined) return undefined;
-  return `--sd-animation:sd-slideUp;--sd-duration:150ms;--sd-easing:ease;--sd-delay:${props.iconDelay}ms`;
+  return sdStyle({ delay: props.iconDelay });
 });
 
 const linkClass = computed(() => [
@@ -45,7 +45,3 @@ const linkClass = computed(() => [
     </svg>
   </NuxtLink>
 </template>
-
-<script lang="ts">
-// This script block is for declaring any additional TypeScript code if needed
-</script>

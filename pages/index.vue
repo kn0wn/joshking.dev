@@ -4,8 +4,11 @@ import { STREAM_DELAY_KEY, type StreamDelayConfig } from "~/composables/useStrea
 const whoWordCount = ref(0);
 const whereWordCount = ref(0);
 
-const whereStart = computed(() => whoWordCount.value);
-const notableStart = computed(() => whoWordCount.value + whereWordCount.value);
+const homeStream = useStreamCursor(0);
+homeStream.next(whoWordCount);
+const whereStart = homeStream.next(whereWordCount);
+
+const notableStart = homeStream.end;
 
 const streamDelay = computed<StreamDelayConfig>(() => ({
   worksStartIndex: notableStart.value,

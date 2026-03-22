@@ -24,11 +24,6 @@ defineOgImageComponent("OgImage", {
     "Partnering with founders to create products of the future.",
 });
 
-function countWords(s) {
-  if (!s) return 0;
-  return s.trim().split(/\s+/).filter(Boolean).length;
-}
-
 const tagWordCount = computed(() => (page.value?.tags?.length ?? 0));
 const titleStart = computed(() => tagWordCount.value);
 </script>

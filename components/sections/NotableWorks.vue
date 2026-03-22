@@ -21,49 +21,36 @@ const projects = computed(() => {
   });
 });
 
-function countWords(s: string | undefined | null) {
-  if (!s) return 0;
-  return s.trim().split(/\s+/).filter(Boolean).length;
-}
-
 const LABEL = "Works.";
 const wLabel = countWords(LABEL);
 
 const si = computed(() => props.startIndex ?? 0);
 
-// Each project's word counts: title + role + description + period
-const projectWordCounts = computed(() =>
-  projects.value.map((p) =>
-    countWords(p.title) +
-    countWords(p.role) +
-    countWords(p.description) +
-    countWords(p.period)
-  )
-);
+const projectStarts = computed(() => {
+  let cursor = si.value + wLabel;
+  return projects.value.map((p) => {
+    const titleStart = cursor;
+    const roleStart = titleStart + countWords(p.title);
+    const descStart = roleStart + countWords(p.role);
+    const periodStart = descStart + countWords(p.description);
+    cursor = periodStart + countWords(p.period);
+    return {
+      title: titleStart,
+      role: roleStart,
+      desc: descStart,
+      period: periodStart,
+    };
+  });
+});
 
-const totalWords = computed(
-  () => wLabel + projectWordCounts.value.reduce((a, b) => a + b, 0)
-);
+const totalWords = computed(() => {
+  const last = projectStarts.value.at(-1);
+  const lastProject = projects.value.at(-1);
+  if (!last || !lastProject) return wLabel;
+  return last.period + countWords(lastProject.period) - si.value;
+});
 
 watch(totalWords, (val) => emit("update:wordCount", val), { immediate: true });
-
-function projectStart(idx: number) {
-  let offset = 0;
-  for (let i = 0; i < idx; i++) offset += projectWordCounts.value[i];
-  return si.value + wLabel + offset;
-}
-
-function roleStart(idx: number) {
-  return projectStart(idx) + countWords(projects.value[idx].title);
-}
-
-function descStart(idx: number) {
-  return roleStart(idx) + countWords(projects.value[idx].role);
-}
-
-function periodStart(idx: number) {
-  return descStart(idx) + countWords(projects.value[idx].description);
-}
 </script>
 
 <template>
@@ -80,7 +67,7 @@ function periodStart(idx: number) {
           :text="project.title"
           tag="p"
           class="font-medium text-blue-500"
-          :start-index="projectStart(idx)"
+          :start-index="projectStarts[idx]!.title"
         />
 
         <div class="space-y-0.5">
@@ -89,21 +76,21 @@ function periodStart(idx: number) {
             :text="project.role"
             tag="p"
             class="text-sm"
-            :start-index="roleStart(idx)"
+            :start-index="projectStarts[idx]!.role"
           />
           <SdText
             v-if="project.description"
             :text="project.description"
             tag="p"
             class="text-sm text-grey"
-            :start-index="descStart(idx)"
+            :start-index="projectStarts[idx]!.desc"
           />
           <SdText
             v-if="project.period"
             :text="project.period"
             tag="p"
             class="text-grey text-xs tabular-nums"
-            :start-index="periodStart(idx)"
+            :start-index="projectStarts[idx]!.period"
           />
         </div>
       </div>
