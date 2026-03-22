@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "packageManager": "npm@10.9.3",
   "engines": {
     "node": "24.x"
   },

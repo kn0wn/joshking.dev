@@ -23,4 +23,4 @@ bun run build
 bun run preview
 ```
 
-Deploys to [Vercel](https://vercel.com) via `@astrojs/vercel` (static output). Install/build on Vercel use Bun (`vercel.json`). There is no `packageManager` field on purpose: Vercel’s Corepack path doesn’t support Bun, which would break the build.
+Deploys to [Vercel](https://vercel.com) via `@astrojs/vercel` (static output). `vercel.json` uses **Bun** for install/build. `package.json` declares **`packageManager`: `npm@…`** so Vercel’s Corepack step can run (Corepack does not support Bun; using `bun@…` here breaks the build).
