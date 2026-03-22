@@ -23,4 +23,4 @@ bun run build
 bun run preview
 ```
 
-Deploys to [Vercel](https://vercel.com) via `@astrojs/vercel` (static output). `vercel.json` uses **Bun** for install/build. `package.json` declares **`packageManager`: `npm@…`** so Vercel’s Corepack step can run (Corepack does not support Bun; using `bun@…` here breaks the build).
+Deploys to [Vercel](https://vercel.com) via `@astrojs/vercel` (static output). `vercel.json` uses **Bun** for install/build; **`bun.lock`** is the lockfile. There is **no** `packageManager` field: Corepack only supports npm/Yarn/pnpm, so `npm@…` conflicts with Bun detection, and `bun@…` can break Corepack. If builds log Corepack noise, set **`ENABLE_EXPERIMENTAL_COREPACK=0`** in the Vercel project’s Environment Variables.
