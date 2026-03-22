@@ -12,12 +12,7 @@ export function sdStyle(opts: {
   easing?: string;
   delay?: number;
 }): string {
-  const {
-    animation = "slideUp",
-    duration = 150,
-    easing = "ease",
-    delay = 0,
-  } = opts;
+  const { animation = "slideUp", duration = 150, easing = "ease", delay = 0 } = opts;
   let s = `--sd-animation:sd-${animation};--sd-duration:${duration}ms;--sd-easing:${easing}`;
   if (delay > 0) s += `;--sd-delay:${delay}ms`;
   return s;
@@ -33,7 +28,7 @@ export interface StreamConfig {
 export function calcDelay(
   wordIndex: number,
   config: StreamConfig | undefined,
-  fallbackStagger: number
+  fallbackStagger: number,
 ): number {
   const c = config;
   if (!c || c.worksStartIndex <= 0) return wordIndex * fallbackStagger;

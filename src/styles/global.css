@@ -47,8 +47,7 @@
 
 [data-sd-animate] {
   opacity: 0;
-  animation: var(--sd-animation, sd-slideUp) var(--sd-duration, 150ms)
-    var(--sd-easing, ease) both;
+  animation: var(--sd-animation, sd-slideUp) var(--sd-duration, 150ms) var(--sd-easing, ease) both;
   animation-delay: calc(var(--sd-delay, 0ms) + var(--sd-base-delay, 0ms));
 }
 

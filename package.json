@@ -6,10 +6,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
-  },
-  "engines": {
-    "node": "24.x"
+    "astro": "astro",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "fmt": "oxfmt .",
+    "fmt:check": "oxfmt --check ."
   },
   "dependencies": {
     "@astro-community/astro-embed-link-preview": "^0.3.1",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@astrojs/partytown": "^2.1.5",
+    "@astrojs/sitemap": "^3.7.1",
     "@astrojs/svelte": "^8.0.3",
     "@astrojs/tailwind": "^6.0.2",
     "@astrojs/vercel": "^10.0.2",
@@ -29,8 +31,14 @@
     "@types/sharp": "^0.32.0",
     "astro": "^6.0.0",
     "astro-icon": "^1.1.5",
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
     "svelte": "^5.0.0",
     "tailwindcss": "^3.4.19",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "unplugin-fonts": "^1.4.0"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }

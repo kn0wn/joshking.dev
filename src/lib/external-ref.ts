@@ -16,11 +16,7 @@ export function withSiteRef(href: string): string {
   }
 
   const host = url.hostname.toLowerCase();
-  if (
-    host === "joshking.dev" ||
-    host === "www.joshking.dev" ||
-    host === "localhost"
-  ) {
+  if (host === "joshking.dev" || host === "www.joshking.dev" || host === "localhost") {
     return href;
   }
 

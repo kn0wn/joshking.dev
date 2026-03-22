@@ -44,4 +44,3 @@ export function buildStreamConfig(): StreamConfig {
     worksStagger: 22,
   };
 }
-

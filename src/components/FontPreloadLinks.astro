@@ -1,0 +1,19 @@
+---
+/**
+ * Local replacement for `unplugin-fonts/astro/component.astro` — that file uses JSX
+ * fragments in a way Astro rejects when imported from node_modules.
+ * @see https://github.com/cssninjaStudio/unplugin-fonts
+ */
+import { links } from "unplugin-fonts/head";
+
+const headLinks = Array.isArray(links) ? links : [];
+---
+
+{
+  headLinks.map((link) => (
+    <link
+      {...(link?.attrs as Record<string, string | boolean | undefined> | undefined)}
+      data-unfont
+    />
+  ))
+}

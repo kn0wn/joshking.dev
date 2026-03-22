@@ -4,8 +4,7 @@ export const SITE = {
   /**
    * `<title>`, `og:title`, Twitter title — ~50–60 chars works well in link previews.
    */
-  title:
-    "Josh King — Technical architect for ambitious product teams",
+  title: "Josh King — Technical architect for ambitious product teams",
   /**
    * Meta description, `og:description`, Twitter — ~110–160 chars for rich previews.
    */
