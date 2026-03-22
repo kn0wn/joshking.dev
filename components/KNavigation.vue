@@ -37,7 +37,7 @@ onMounted(() => {
           />
           <span class="relative inline-flex h-3 w-3 rounded-sm bg-blue-500" />
         </span>
-        <p class="text-xl whitespace-nowrap">josh king</p>
+        <SdText text="josh king" tag="p" class="text-xl whitespace-nowrap" :start-index="0" />
         <div v-if="!$route.path.match(/^\/$/)">
           <KLink href="/" :external="false">Home</KLink>
         </div>

@@ -2,10 +2,19 @@
 interface Props {
   href: string;
   external?: boolean;
+  iconDelay?: number;
+  showExternalIcon?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   external: true,
+  iconDelay: undefined,
+  showExternalIcon: true,
+});
+
+const iconStyle = computed(() => {
+  if (props.iconDelay === undefined) return undefined;
+  return `--sd-animation:sd-slideUp;--sd-duration:150ms;--sd-easing:ease;--sd-delay:${props.iconDelay}ms`;
 });
 
 const linkClass = computed(() => [
@@ -23,10 +32,11 @@ const linkClass = computed(() => [
   >
     <slot />
     <svg
-      v-if="props.external"
+      v-if="props.external && props.showExternalIcon"
       xmlns="http://www.w3.org/2000/svg"
       class="aspect-square h-4 w-4"
       viewBox="0 0 24 24"
+      v-bind="iconStyle ? { 'data-sd-animate': true, style: iconStyle } : {}"
     >
       <path
         fill="currentColor"

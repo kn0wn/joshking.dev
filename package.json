@@ -10,8 +10,10 @@
   },
   "packageManager": "pnpm@10.32.1",
   "devDependencies": {
+    "@iconify-json/simple-icons": "^1.2.74",
     "@nuxt/content": "^3.12.0",
     "@nuxt/fonts": "^0.10.3",
+    "@nuxt/icon": "^1.15.0",
     "@nuxt/image": "^1.11.0",
     "@nuxtjs/seo": "3.0.3",
     "@nuxtjs/tailwindcss": "^6.14.0",

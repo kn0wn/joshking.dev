@@ -1,4 +1,12 @@
 <script setup lang="ts">
+const props = defineProps<{
+  startIndex?: number;
+}>();
+
+const emit = defineEmits<{
+  (e: "update:wordCount", val: number): void;
+}>();
+
 const { data } = await useAsyncData("notable-works", () =>
   queryCollection("notableWorks").first()
 );
@@ -12,27 +20,91 @@ const projects = computed(() => {
     return a.title.localeCompare(b.title);
   });
 });
+
+function countWords(s: string | undefined | null) {
+  if (!s) return 0;
+  return s.trim().split(/\s+/).filter(Boolean).length;
+}
+
+const LABEL = "Works.";
+const wLabel = countWords(LABEL);
+
+const si = computed(() => props.startIndex ?? 0);
+
+// Each project's word counts: title + role + description + period
+const projectWordCounts = computed(() =>
+  projects.value.map((p) =>
+    countWords(p.title) +
+    countWords(p.role) +
+    countWords(p.description) +
+    countWords(p.period)
+  )
+);
+
+const totalWords = computed(
+  () => wLabel + projectWordCounts.value.reduce((a, b) => a + b, 0)
+);
+
+watch(totalWords, (val) => emit("update:wordCount", val), { immediate: true });
+
+function projectStart(idx: number) {
+  let offset = 0;
+  for (let i = 0; i < idx; i++) offset += projectWordCounts.value[i];
+  return si.value + wLabel + offset;
+}
+
+function roleStart(idx: number) {
+  return projectStart(idx) + countWords(projects.value[idx].title);
+}
+
+function descStart(idx: number) {
+  return roleStart(idx) + countWords(projects.value[idx].role);
+}
+
+function periodStart(idx: number) {
+  return descStart(idx) + countWords(projects.value[idx].description);
+}
 </script>
 
 <template>
   <div class="px-4 py-2">
-    <KDecrypt tag="p" classes="text-sm text-grey mb-2">Works.</KDecrypt>
+    <SdText text="Works." tag="p" class="text-sm text-grey mb-2" :start-index="si" />
 
     <div class="space-y-4">
       <div
-        v-for="project in projects"
+        v-for="(project, idx) in projects"
         :key="project.title"
         class="space-y-1"
       >
-        <KLink v-if="project.href" :href="project.href">
-          {{ project.title }}
-        </KLink>
-        <KDecrypt v-else tag="p" classes="font-medium">{{ project.title }}</KDecrypt>
+        <SdText
+          :text="project.title"
+          tag="p"
+          class="font-medium text-blue-500"
+          :start-index="projectStart(idx)"
+        />
 
         <div class="space-y-0.5">
-          <KDecrypt v-if="project.role" tag="p" classes="text-sm">{{ project.role }}</KDecrypt>
-          <KDecrypt v-if="project.description" tag="p" classes="text-sm text-grey">{{ project.description }}</KDecrypt>
-          <KDecrypt v-if="project.period" classes="text-grey text-xs tabular-nums" tag="p">{{ project.period }}</KDecrypt>
+          <SdText
+            v-if="project.role"
+            :text="project.role"
+            tag="p"
+            class="text-sm"
+            :start-index="roleStart(idx)"
+          />
+          <SdText
+            v-if="project.description"
+            :text="project.description"
+            tag="p"
+            class="text-sm text-grey"
+            :start-index="descStart(idx)"
+          />
+          <SdText
+            v-if="project.period"
+            :text="project.period"
+            tag="p"
+            class="text-grey text-xs tabular-nums"
+            :start-index="periodStart(idx)"
+          />
         </div>
       </div>
     </div>

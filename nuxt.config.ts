@@ -18,6 +18,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "@nuxt/content",
+    "@nuxt/icon",
     "@nuxtjs/tailwindcss",
     "@nuxt/fonts",
     "@vueuse/nuxt",
@@ -67,7 +68,6 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      x: "https://x.com/josh_fyi",
       linkedin: "https://www.linkedin.com/in/josh-king-connect",
       github: "https://github.com/kn0wn",
     },

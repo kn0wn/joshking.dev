@@ -1,27 +1,19 @@
 <script setup lang="ts">
-import { useTimeoutFn } from "@vueuse/core";
+import { STREAM_DELAY_KEY, type StreamDelayConfig } from "~/composables/useStreamDelay";
 
-const whoLoaded = ref(false);
-const whereLoaded = ref(false);
-const notableLoaded = ref(false);
+const whoWordCount = ref(0);
+const whereWordCount = ref(0);
 
-const loadWho = useTimeoutFn(() => {
-  whoLoaded.value = true;
-}, 300);
+const whereStart = computed(() => whoWordCount.value);
+const notableStart = computed(() => whoWordCount.value + whereWordCount.value);
 
-const loadWhere = useTimeoutFn(() => {
-  whereLoaded.value = true;
-}, 900);
+const streamDelay = computed<StreamDelayConfig>(() => ({
+  worksStartIndex: notableStart.value,
+  baseStagger: 40,
+  worksStagger: 22,
+}));
 
-const loadNotable = useTimeoutFn(() => {
-  notableLoaded.value = true;
-}, 1500);
-
-onMounted(() => {
-  loadWho.start();
-  loadWhere.start();
-  loadNotable.start();
-});
+provide(STREAM_DELAY_KEY, streamDelay);
 
 definePageMeta({
   title: "joshking.dev",
@@ -34,20 +26,21 @@ defineOgImageComponent("Default", {
 </script>
 
 <template>
-  <div>
+  <div style="--sd-base-delay: 120ms">
     <div class="px-4 py-2 grid grid-cols-1 gap-4">
-      <Transition name="fade">
-        <SectionsWho v-if="whoLoaded" />
-      </Transition>
-
-      <Transition name="fade">
-        <SectionsWhere v-if="whereLoaded" />
-      </Transition>
+      <SectionsWho
+        :start-index="0"
+        @update:word-count="whoWordCount = $event"
+      />
+      <SectionsWhere
+        :start-index="whereStart"
+        @update:word-count="whereWordCount = $event"
+      />
     </div>
 
-    <Transition name="fade">
-      <SectionsNotableWorks v-if="notableLoaded" />
-    </Transition>
+    <SectionsNotableWorks
+      :start-index="notableStart"
+    />
   </div>
 </template>
 
