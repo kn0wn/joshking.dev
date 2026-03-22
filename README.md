@@ -25,9 +25,11 @@ bun run preview
 
 Deploys to [Vercel](https://vercel.com) via `@astrojs/vercel` (static output). `vercel.json` uses **Bun** for install/build; **`bun.lock`** is the lockfile. There is **no** `packageManager` field: Corepack only supports npm/Yarn/pnpm, so `npm@…` conflicts with Bun detection, and `bun@…` can break Corepack. If builds log Corepack noise, set **`ENABLE_EXPERIMENTAL_COREPACK=0`** in the Vercel project’s Environment Variables.
 
-### Open Graph image (`/og.png`)
+### Open Graph image (generated)
 
-The site’s **`og:image`** / **`twitter:image`** point at [`public/og.png`](public/og.png) via `SITE` in `src/lib/site.ts`. Replace that PNG with a real social preview (commonly **1200×630**); then keep `ogImageWidth` / `ogImageHeight` in sync with the file. This is separate from **astro-embed Link Preview**, which only reads *external* URLs for optional work cards.
+Social **`og:image`** / **`twitter:image`** use **`/open-graph/site.png`**, produced at **build time** by [`astro-og-canvas`](https://github.com/delucis/astro-og-canvas) (`src/pages/open-graph/[...route].ts`). The build must reach **Fontsource** to download Noto Sans TTFs (same as local `bun run build`). Edit that route to change layout, colors, or fonts.
+
+This is separate from **astro-embed Link Preview**, which only reads *external* URLs for optional work cards.
 
 ### Link previews (optional)
 

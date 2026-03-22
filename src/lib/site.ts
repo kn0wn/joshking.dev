@@ -6,9 +6,9 @@ export const SITE = {
   linkedin: "https://www.linkedin.com/in/josh-king-connect",
   github: "https://github.com/kn0wn",
   fathomSiteId: "NXIDHQVO",
-  /** Absolute path under `public/`. Replace the file with a real PNG (see README). */
-  ogImagePath: "/og.png",
-  /** Recommended social preview size; keep in sync with the actual `og.png` asset. */
+  /** Generated at build by `astro-og-canvas` (`src/pages/open-graph/[...route].ts`). */
+  ogImagePath: "/open-graph/site.png",
+  /** Canvas size from `astro-og-canvas` (see `src/pages/open-graph/[...route].ts`). */
   ogImageWidth: 1200,
   ogImageHeight: 630,
   ogImageAlt: "Josh King — joshking.dev",
