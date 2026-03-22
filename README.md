@@ -27,7 +27,7 @@ Deploys to [Vercel](https://vercel.com) via `@astrojs/vercel` (static output). `
 
 ### Open Graph image (generated)
 
-Social **`og:image`** / **`twitter:image`** use **`/open-graph/site.png`**, produced at **build time** by [`astro-og-canvas`](https://github.com/delucis/astro-og-canvas) (`src/pages/open-graph/[...route].ts`). The build must reach **Fontsource** to download Noto Sans TTFs (same as local `bun run build`). Edit that route to change layout, colors, or fonts.
+Social **`og:image`** / **`twitter:image`** use **`/open-graph/site.png`**, built from [`astro-og-canvas`](https://github.com/delucis/astro-og-canvas) plus a **CTA pill** composited with **`sharp`** (`src/lib/og-site-image.ts`, route in `src/pages/open-graph/[...route].ts`). Copy lives in `SITE` (`ogImageBody`, `ogImageCta`). The build must reach **Fontsource** for Noto Sans TTFs.
 
 This is separate from **astro-embed Link Preview**, which only reads *external* URLs for optional work cards.
 

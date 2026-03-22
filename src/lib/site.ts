@@ -11,7 +11,12 @@ export const SITE = {
    */
   description:
     "London-based technical architect—spatial tooling, multi-agent platforms, design systems, product engineering. Explore projects at joshking.dev.",
-  /** Shown on the generated OG image (astro-og-canvas has no separate CTA layer). */
+  /**
+   * OG image body only (no duplicate URL; CTA is a separate pill on the PNG).
+   */
+  ogImageBody:
+    "London-based technical architect—spatial tooling, multi-agent platforms, design systems, product engineering.",
+  /** Drawn as a pill + label on the OG image (not plain body text). */
   ogImageCta: "Visit joshking.dev →",
   linkedin: "https://www.linkedin.com/in/josh-king-connect",
   github: "https://github.com/kn0wn",
@@ -22,5 +27,5 @@ export const SITE = {
   ogImageWidth: 1200,
   ogImageHeight: 630,
   ogImageAlt:
-    "Josh King — Technical architect for ambitious product teams (joshking.dev)",
+    "Josh King — Technical architect for ambitious product teams. Call to action: visit joshking.dev.",
 } as const;
