@@ -8,11 +8,13 @@ export const { getStaticPaths, GET } = await OGImageRoute({
     site: {
       title: SITE.title,
       description: SITE.description,
+      cta: SITE.ogImageCta,
     },
   },
   getImageOptions: (_path, page) => ({
     title: page.title,
-    description: page.description,
+    // astro-og-canvas only renders title + description; append CTA for on-image prompt.
+    description: `${page.description}\n\n${page.cta}`,
     bgGradient: [
       [0, 48, 143],
       [0, 24, 107],
@@ -20,14 +22,14 @@ export const { getStaticPaths, GET } = await OGImageRoute({
     font: {
       title: {
         color: [255, 255, 255],
-        size: 72,
+        size: 56,
         weight: "Bold",
         families: ["Noto Sans"],
       },
       description: {
         color: [220, 225, 235],
-        size: 36,
-        lineHeight: 1.35,
+        size: 28,
+        lineHeight: 1.4,
         weight: "Normal",
         families: ["Noto Sans"],
       },
