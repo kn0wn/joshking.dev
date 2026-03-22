@@ -4,6 +4,8 @@ export interface NotableProject {
   description: string;
   order?: number;
   period?: string;
+  /** If set, shows an Astro Embed Link Preview card (OG metadata fetched at build time). */
+  previewUrl?: string;
 }
 
 /** Sorted by `order` then title. */

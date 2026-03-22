@@ -1,5 +1,7 @@
 ---
+import { LinkPreview } from "@astro-community/astro-embed-link-preview";
 import SdText from "../SdText.astro";
+import { withSiteRef } from "../../lib/external-ref";
 import { NOTABLE_PROJECTS } from "../../lib/notable-works";
 import { countWords, type StreamConfig } from "../../lib/stream";
 
@@ -82,6 +84,11 @@ const projectStarts = (() => {
                 startIndex={projectStarts[idx]!.period}
                 streamConfig={streamConfig}
               />
+            )}
+            {project.previewUrl && (
+              <div class="notable-link-preview mt-3 max-w-full">
+                <LinkPreview id={withSiteRef(project.previewUrl)} />
+              </div>
             )}
           </div>
         </div>
