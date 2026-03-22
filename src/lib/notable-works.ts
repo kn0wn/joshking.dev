@@ -6,7 +6,7 @@ export interface NotableProject {
   period?: string;
 }
 
-/** Sorted by `order` then title (same as previous Nuxt + YAML). */
+/** Sorted by `order` then title. */
 export const NOTABLE_PROJECTS: NotableProject[] = [
   {
     title: "Spatial IDE",

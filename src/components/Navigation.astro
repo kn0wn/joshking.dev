@@ -4,10 +4,17 @@ import SdText from "./SdText.astro";
 import Link from "./Link.astro";
 import { Icon } from "astro-icon/components";
 import { SITE } from "../lib/site";
-import { buildStreamConfig, NAV_NAME_TEXT } from "../lib/stream-layout";
+import {
+  buildStreamConfig,
+  getNavStreamWordCount,
+  NAV_NAME_TEXT,
+} from "../lib/stream-layout";
 import { calcDelay, countWords, sdStyle, type StreamConfig } from "../lib/stream";
 
 const streamConfig: StreamConfig = buildStreamConfig();
+
+/** First index after name + social icons; aligns with Who section start. */
+const clockStreamIndex = getNavStreamWordCount();
 
 const contact = [
   { name: "GitHub", url: SITE.github, icon: "simple-icons:github" },
@@ -63,5 +70,13 @@ function iconAnimateStyle(idx: number): string {
       </div>
     </div>
   </div>
-  <Clock client:load />
+  <div
+    class="flex items-center justify-end sm:justify-start"
+    data-sd-animate
+    style={sdStyle({
+      delay: calcDelay(clockStreamIndex, streamConfig, 40),
+    })}
+  >
+    <Clock client:load />
+  </div>
 </nav>

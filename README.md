@@ -2,27 +2,25 @@
 
 Personal site built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and a small [Svelte](https://svelte.dev) island (live clock).
 
+Requires **[Bun](https://bun.sh)** and **Node 24+** (see `engines` in `package.json`).
+
 ## Setup
 
 ```bash
-pnpm install
+bun install
 ```
 
 ## Development
 
 ```bash
-pnpm dev
+bun dev
 ```
 
 ## Production
 
 ```bash
-pnpm build
-pnpm preview
+bun run build
+bun run preview
 ```
 
-Deploys to [Vercel](https://vercel.com) via `@astrojs/vercel` (static output).
-
-## Content
-
-Legacy markdown from the previous Nuxt blog lives under `content/` and is not part of the Astro build.
+Deploys to [Vercel](https://vercel.com) via `@astrojs/vercel` (static output). Install/build on Vercel use Bun (`vercel.json`).

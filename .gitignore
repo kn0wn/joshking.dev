@@ -3,7 +3,7 @@ dist
 .astro
 .vercel
 
-# Legacy Nuxt (if present locally)
+# Local caches / old tooling
 .output
 .data
 .nuxt

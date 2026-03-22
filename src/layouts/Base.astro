@@ -10,6 +10,7 @@ import "@fontsource/geist-mono/700.css";
 import Navigation from "../components/Navigation.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import { SITE } from "../lib/site";
+import { withSiteRef } from "../lib/external-ref";
 
 interface Props {
   title?: string;
@@ -83,10 +84,10 @@ const personLd = {
     <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
 
     <script
+      type="text/partytown"
       src="https://cdn.usefathom.com/script.js"
       data-site={SITE.fathomSiteId}
       defer
-      is:inline
     ></script>
   </head>
   <body
@@ -105,14 +106,23 @@ const personLd = {
           style="--sd-animation:sd-slideUp;--sd-duration:400ms;--sd-easing:ease;--sd-delay:3200ms"
         >
           Built with
-          <a target="_blank" href="https://astro.build" class="text-blue-500"
-            >Astro</a
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={withSiteRef("https://astro.build")}
+            class="text-blue-500">Astro</a
           >. Font
-          <a target="_blank" href="https://vercel.com/font" class="text-blue-500"
-            >Geist</a
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={withSiteRef("https://vercel.com/font")}
+            class="text-blue-500">Geist</a
           >. Deployed on
-          <a target="_blank" href="https://vercel.com" class="text-blue-500"
-            >Vercel</a
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={withSiteRef("https://vercel.com")}
+            class="text-blue-500">Vercel</a
           >.
         </p>
       </footer>

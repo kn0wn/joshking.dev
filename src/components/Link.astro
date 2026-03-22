@@ -1,5 +1,6 @@
 ---
 import { sdStyle } from "../lib/stream";
+import { withSiteRef } from "../lib/external-ref";
 
 interface Props {
   href: string;
@@ -27,10 +28,12 @@ const linkClass = [
 
 const iconStyle =
   iconDelay !== undefined ? sdStyle({ delay: iconDelay }) : undefined;
+
+const resolvedHref = external ? withSiteRef(href) : href;
 ---
 
 <a
-  href={href}
+  href={resolvedHref}
   target={external ? "_blank" : undefined}
   rel={external ? "noopener noreferrer" : undefined}
   class={linkClass}
