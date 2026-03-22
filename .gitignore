@@ -1,10 +1,14 @@
-# Nuxt dev/build outputs
+# Astro / Vite
+dist
+.astro
+.vercel
+
+# Legacy Nuxt (if present locally)
 .output
 .data
 .nuxt
 .nitro
 .cache
-dist
 
 # Node dependencies
 node_modules

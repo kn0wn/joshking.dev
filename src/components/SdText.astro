@@ -1,0 +1,108 @@
+---
+import {
+  tokenizeText,
+  sdStyle,
+  calcDelay,
+  type StreamConfig,
+} from "../lib/stream";
+
+interface Props {
+  text: string;
+  tag?: string;
+  class?: string;
+  startIndex?: number;
+  animation?: string;
+  duration?: number;
+  easing?: string;
+  stagger?: number;
+  streamConfig?: StreamConfig;
+}
+
+const {
+  text,
+  tag = "span",
+  class: className,
+  startIndex = 0,
+  animation = "slideUp",
+  duration = 150,
+  easing = "ease",
+  stagger = 40,
+  streamConfig,
+} = Astro.props;
+
+const tokens = tokenizeText(text, startIndex);
+
+function spanStyle(index: number): string {
+  const delay = calcDelay(index, streamConfig, stagger);
+  return sdStyle({
+    animation,
+    duration,
+    easing,
+    ...(delay > 0 ? { delay } : {}),
+  });
+}
+---
+
+{
+  tag === "p" ? (
+    <p class={className}>
+      {tokens.map((token) =>
+        token.isWord ? (
+          <span data-sd-animate style={spanStyle(token.index)}>
+            {token.text}
+          </span>
+        ) : (
+          token.text
+        ),
+      )}
+    </p>
+  ) : tag === "h1" ? (
+    <h1 class={className}>
+      {tokens.map((token) =>
+        token.isWord ? (
+          <span data-sd-animate style={spanStyle(token.index)}>
+            {token.text}
+          </span>
+        ) : (
+          token.text
+        ),
+      )}
+    </h1>
+  ) : tag === "h2" ? (
+    <h2 class={className}>
+      {tokens.map((token) =>
+        token.isWord ? (
+          <span data-sd-animate style={spanStyle(token.index)}>
+            {token.text}
+          </span>
+        ) : (
+          token.text
+        ),
+      )}
+    </h2>
+  ) : tag === "div" ? (
+    <div class={className}>
+      {tokens.map((token) =>
+        token.isWord ? (
+          <span data-sd-animate style={spanStyle(token.index)}>
+            {token.text}
+          </span>
+        ) : (
+          token.text
+        ),
+      )}
+    </div>
+  ) : (
+    <span class={className}>
+      {tokens.map((token) =>
+        token.isWord ? (
+          <span data-sd-animate style={spanStyle(token.index)}>
+            {token.text}
+          </span>
+        ) : (
+          token.text
+        ),
+      )}
+    </span>
+  )
+}

@@ -1,8 +1,4 @@
-ignoredBuiltDependencies:
-  - better-sqlite3
 onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@vercel/speed-insights'
+  - "@vercel/speed-insights"
   - esbuild
   - sharp
-  - vue-demi

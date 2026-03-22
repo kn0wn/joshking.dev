@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-geist: "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-geist-mono: "Geist Mono", ui-monospace, monospace;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@keyframes sd-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sd-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sd-blurIn {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+[data-sd-animate] {
+  opacity: 0;
+  animation: var(--sd-animation, sd-slideUp) var(--sd-duration, 150ms)
+    var(--sd-easing, ease) both;
+  animation-delay: calc(var(--sd-delay, 0ms) + var(--sd-base-delay, 0ms));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-sd-animate] {
+    opacity: 1;
+    animation: none;
+  }
+}

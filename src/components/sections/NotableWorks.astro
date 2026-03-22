@@ -1,0 +1,91 @@
+---
+import SdText from "../SdText.astro";
+import { NOTABLE_PROJECTS } from "../../lib/notable-works";
+import { countWords, type StreamConfig } from "../../lib/stream";
+
+interface Props {
+  startIndex?: number;
+  streamConfig: StreamConfig;
+}
+
+const { startIndex = 0, streamConfig } = Astro.props;
+
+const LABEL = "Works.";
+const wLabel = countWords(LABEL);
+
+const si = startIndex;
+
+const projectStarts = (() => {
+  let cursor = si + wLabel;
+  return NOTABLE_PROJECTS.map((p) => {
+    const titleStart = cursor;
+    const roleStart = titleStart + countWords(p.title);
+    const descStart = roleStart + countWords(p.role);
+    const periodStart = descStart + countWords(p.description);
+    cursor = periodStart + countWords(p.period ?? "");
+    return {
+      title: titleStart,
+      role: roleStart,
+      desc: descStart,
+      period: periodStart,
+    };
+  });
+})();
+---
+
+<section class="px-4 py-2" aria-labelledby="works-heading">
+  <h2 id="works-heading" class="sr-only">Works</h2>
+  <SdText
+    text={LABEL}
+    tag="p"
+    class="text-sm text-grey mb-2"
+    startIndex={si}
+    streamConfig={streamConfig}
+  />
+
+  <div class="space-y-4">
+    {
+      NOTABLE_PROJECTS.map((project, idx) => (
+        <div class="space-y-1">
+          <SdText
+            text={project.title}
+            tag="p"
+            class="font-medium text-blue-500"
+            startIndex={projectStarts[idx]!.title}
+            streamConfig={streamConfig}
+          />
+
+          <div class="space-y-0.5">
+            {project.role && (
+              <SdText
+                text={project.role}
+                tag="p"
+                class="text-sm"
+                startIndex={projectStarts[idx]!.role}
+                streamConfig={streamConfig}
+              />
+            )}
+            {project.description && (
+              <SdText
+                text={project.description}
+                tag="p"
+                class="text-sm text-grey"
+                startIndex={projectStarts[idx]!.desc}
+                streamConfig={streamConfig}
+              />
+            )}
+            {project.period && (
+              <SdText
+                text={project.period}
+                tag="p"
+                class="text-grey text-xs tabular-nums"
+                startIndex={projectStarts[idx]!.period}
+                streamConfig={streamConfig}
+              />
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

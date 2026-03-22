@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import Who from "../components/sections/Who.astro";
+import Where from "../components/sections/Where.astro";
+import NotableWorks from "../components/sections/NotableWorks.astro";
+import {
+  buildStreamConfig,
+  getNavStreamWordCount,
+  getWhoTotalWords,
+} from "../lib/stream-layout";
+import { SITE } from "../lib/site";
+
+const streamConfig = buildStreamConfig();
+const navWords = getNavStreamWordCount();
+const whoTotal = getWhoTotalWords();
+const worksStart = streamConfig.worksStartIndex;
+const whoStartIndex = navWords;
+const whereStartIndex = navWords + whoTotal;
+---
+
+<Base title={SITE.title} description={SITE.description}>
+  <main>
+    <div style="--sd-base-delay: 120ms">
+      <div class="px-4 py-2 grid grid-cols-1 gap-4">
+        <Who startIndex={whoStartIndex} streamConfig={streamConfig} />
+        <Where startIndex={whereStartIndex} streamConfig={streamConfig} />
+      </div>
+
+      <NotableWorks startIndex={worksStart} streamConfig={streamConfig} />
+    </div>
+  </main>
+</Base>

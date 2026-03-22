@@ -1,0 +1,54 @@
+---
+import SdText from "../SdText.astro";
+import {
+  countWords,
+  createStreamCursor,
+  type StreamConfig,
+} from "../../lib/stream";
+
+interface Props {
+  startIndex?: number;
+  streamConfig: StreamConfig;
+}
+
+const { startIndex = 0, streamConfig } = Astro.props;
+
+const LABEL = "Who.";
+const HEADLINE = "Technical architect.";
+const BODY = "Based in London, United Kingdom.";
+
+const wLabel = countWords(LABEL);
+const wHeadline = countWords(HEADLINE);
+const wBody = countWords(BODY);
+
+const stream = createStreamCursor(startIndex);
+const labelStart = stream.next(wLabel);
+const headlineStart = stream.next(wHeadline);
+const bodyStart = stream.next(wBody);
+---
+
+<section class="mb-4 sm:mb-0" aria-labelledby="who-heading">
+  <h2 id="who-heading" class="sr-only">Who</h2>
+  <SdText
+    text={LABEL}
+    tag="p"
+    class="text-sm text-grey mb-2"
+    startIndex={labelStart}
+    streamConfig={streamConfig}
+  />
+  <div class="space-y-2 min-w-0">
+    <SdText
+      text={HEADLINE}
+      tag="h1"
+      class="text-blue-500"
+      startIndex={headlineStart}
+      streamConfig={streamConfig}
+    />
+    <SdText
+      text={BODY}
+      tag="p"
+      startIndex={bodyStart}
+      streamConfig={streamConfig}
+    />
+  </div>
+</section>

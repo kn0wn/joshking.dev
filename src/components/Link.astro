@@ -1,0 +1,55 @@
+---
+import { sdStyle } from "../lib/stream";
+
+interface Props {
+  href: string;
+  external?: boolean;
+  iconDelay?: number;
+  showExternalIcon?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  external = true,
+  iconDelay,
+  showExternalIcon = true,
+  class: className,
+} = Astro.props;
+
+const linkClass = [
+  "inline-flex items-center gap-x-1 rounded-sm transition-colors",
+  "text-blue-500 hover:text-blue-800",
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+
+const iconStyle =
+  iconDelay !== undefined ? sdStyle({ delay: iconDelay }) : undefined;
+---
+
+<a
+  href={href}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+  class={linkClass}
+>
+  <slot />
+  {
+    external && showExternalIcon && (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="aspect-square h-4 w-4"
+        viewBox="0 0 24 24"
+        data-sd-animate={iconStyle ? true : undefined}
+        style={iconStyle}
+      >
+        <path
+          fill="currentColor"
+          d="M5 17.59 15.59 7H9V5h10v10h-2V8.41L6.41 19 5 17.59Z"
+        />
+      </svg>
+    )
+  }
+</a>

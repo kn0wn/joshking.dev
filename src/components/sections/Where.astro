@@ -1,0 +1,83 @@
+---
+import SdText from "../SdText.astro";
+import Link from "../Link.astro";
+import { WORK_ITEMS } from "../../lib/work-items";
+import {
+  countWords,
+  createStreamCursor,
+  calcDelay,
+  type StreamConfig,
+} from "../../lib/stream";
+
+interface Props {
+  startIndex?: number;
+  streamConfig: StreamConfig;
+}
+
+const { startIndex = 0, streamConfig } = Astro.props;
+
+const LABEL = "Where.";
+const wLabel = countWords(LABEL);
+
+const stream = createStreamCursor(startIndex);
+const labelStart = stream.next(wLabel);
+
+const items = WORK_ITEMS.map((item) => {
+  const companyStart = stream.next(countWords(item.company));
+  const roleStart = stream.next(countWords(item.role));
+  const timelineStart = stream.next(countWords(item.timeline));
+  return {
+    ...item,
+    companyStart,
+    roleStart,
+    timelineStart,
+  };
+});
+---
+
+<section aria-labelledby="where-heading">
+  <h2 id="where-heading" class="sr-only">Where</h2>
+  <SdText
+    text={LABEL}
+    tag="p"
+    class="text-sm text-grey mb-2"
+    startIndex={labelStart}
+    streamConfig={streamConfig}
+  />
+
+  <div class="grid grid-cols-3 gap-4">
+    {
+      items.map((item) => (
+        <div class="space-y-1">
+          <Link
+            href={item.website}
+            iconDelay={calcDelay(item.roleStart, streamConfig, 40)}
+          >
+            <SdText
+              text={item.company}
+              tag="span"
+              startIndex={item.companyStart}
+              streamConfig={streamConfig}
+            />
+          </Link>
+          <div class="space-y-1">
+            <SdText
+              text={item.role}
+              tag="p"
+              class="text-sm"
+              startIndex={item.roleStart}
+              streamConfig={streamConfig}
+            />
+            <SdText
+              text={item.timeline}
+              tag="p"
+              class="text-grey text-xs"
+              startIndex={item.timelineStart}
+              streamConfig={streamConfig}
+            />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
