@@ -41,6 +41,6 @@ export function buildStreamConfig(): StreamConfig {
   return {
     worksStartIndex,
     baseStagger: 40,
-    worksStagger: 22,
+    worksStagger: 10,
   };
 }
